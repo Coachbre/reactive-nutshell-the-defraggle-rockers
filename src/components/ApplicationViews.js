@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
+import { FriendList } from "./friend/FriendList"
 import { ArticleList } from "./news/NewsArticleList";
 import { NewArticleForm } from "./news/NewsArticleForm";
 
@@ -33,7 +34,7 @@ export const ApplicationViews = () => {
       </Route>
 
       <Route path="/friends">
-        {/* Render the component for list of friends */}
+        <FriendList />
       </Route>
 
       <Route path="/messages">
