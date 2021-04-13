@@ -2,6 +2,10 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
+import { TaskList } from "./task/TaskList";
+
+
+
 
 export const ApplicationViews = () => {
   return (
@@ -22,9 +26,12 @@ export const ApplicationViews = () => {
       <Route path="/messages">
         {/* Render the component for the messages */}
       </Route>
+
       <Route path="/tasks">
-        {/* Render the component for the user's tasks */}
+        <h1>Tasks</h1>
+        <TaskList />
       </Route>
+
       <Route path="/events">
         {/* Render the component for the user's events */}
       </Route>
