@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {TaskCard} from "./TaskCard";
+import {getAllTasks } from '../../modules/TaskManager';
 
 export const TaskList = () => {
     //declaring state variable (as an empty array)
@@ -8,7 +9,12 @@ export const TaskList = () => {
     'tasks is the CURRENT value. setAnimals is used to change the value of 'tasks' */
 
     const getTasks = () => {
-        //returns 
+        //^ getTasks() ultimately returns task array from json
+        return getAllTasks() 
+        //getAllTasks() fetches json info
+        .then(tasksFromAPI => {
+            setTasks(tasksFromAPI)
+        })
     }
     
 
