@@ -25,14 +25,16 @@ export const NewArticleForm = () => {
             selectedVal = parseInt(selectedVal)
         }
 
+        newArticle[event.target.id] = selectedVal
+
         setArticle(newArticle)
     }
 
     const handleClickSaveArticle = (event) => {
-        event.prevent()
+        event.preventDefault()
 
         addArticle(article)
-            .then(() => history.push("/news"))
+            .then(() => history.push("/"))
     }
 
     return (
