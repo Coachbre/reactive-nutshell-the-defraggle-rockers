@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
+import { ArticleCard } from "./NewsArticleCard";
 import { getAllArticles } from "../../modules/NewsArticleManager";
 import './NewsArticleList.css';
 
@@ -11,9 +12,9 @@ export const ArticleList = () => {
 
     const getArticles = () => {
         return getAllArticles()
-        .then(articlesFromAPI => {
-            setArticles(articlesFromAPI)
-        });
+            .then(articlesFromAPI => {
+                setArticles(articlesFromAPI)
+            });
     };
 
     useEffect(() => {
@@ -27,9 +28,13 @@ export const ArticleList = () => {
                     <button type="button"
                         className="btn btn-primary"
                         onClick={() => { history.push("/create") }}>
-                            Post News Article
+                        Post News Article
                         </button>
                 </section>
+                {articles.map(article => <ArticleCard
+                    key={article.id}
+                    article={article}
+                />).reverse()}
             </div>
         </>
     );
