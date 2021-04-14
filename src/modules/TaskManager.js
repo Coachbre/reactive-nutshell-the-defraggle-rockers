@@ -8,3 +8,9 @@ export const getAllTasks = () => {
     .then(res => res.json())
     //waits for response, then parses response into json data
 }
+
+export const deleteTask = (id) => {
+    return fetch(`${remoteURL}/tasks/${id}`, {
+        method: "DELETE"
+    }).then(result => result.json())
+}
