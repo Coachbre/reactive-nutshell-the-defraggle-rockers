@@ -2,6 +2,10 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
+import { TaskList } from "./task/TaskList";
+
+
+
 import { FriendList } from "./friend/FriendList"
 import { ArticleList } from "./news/NewsArticleList";
 import { NewArticleForm } from "./news/NewsArticleForm";
@@ -42,7 +46,8 @@ export const ApplicationViews = () => {
       </Route>
 
       <Route path="/tasks">
-        {/* Render the component for the user's tasks */}
+        <h1>Tasks</h1>
+        <TaskList />
       </Route>
 
       <Route path="/events">
