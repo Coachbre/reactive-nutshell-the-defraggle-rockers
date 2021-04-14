@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { ArticleCard } from "./NewsArticleCard";
-import { getAllArticles } from "../../modules/NewsArticleManager";
+import { getAllArticles, deleteArticle } from "../../modules/NewsArticleManager";
 import './NewsArticleList.css';
 
 export const ArticleList = () => {
@@ -16,6 +16,12 @@ export const ArticleList = () => {
                 setArticles(articlesFromAPI)
             });
     };
+
+    const handleDeleteArticle = id => {
+        deleteArticle(id)
+        .then(() => getAllArticles()
+        .then(setArticles));
+    }
 
     useEffect(() => {
         getArticles();
@@ -34,6 +40,7 @@ export const ArticleList = () => {
                 {articles.map(article => <ArticleCard
                     key={article.id}
                     article={article}
+                    handleDeleteArticle={handleDeleteArticle}
                 />).reverse()}
             </div>
         </>

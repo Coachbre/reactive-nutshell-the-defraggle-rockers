@@ -14,3 +14,9 @@ export const addArticle = (newArticle) => {
     body: JSON.stringify(newArticle)
   }).then(response => response.json())
 }
+
+export const deleteArticle = (id) => {
+  return fetch(`${remoteURL}/articles/${id}`, {
+    method: "DELETE"
+  }).then(result => result.json())
+}
