@@ -12,8 +12,8 @@ export const ArticleCard = ({ article, handleDeleteArticle }) => {
                             {article.newsTitle}
                         </span></h3>
                         <p>Synopsis: {article.synopsis}</p>
-                        <p>URL:</p><a href="">{article.url}</a>
-                        <p>Timestamp: {Date.now()}</p>
+                        <p>URL:</p><a href={article.url}>{article.url}</a>
+                        <p>Timestamp: {article.timestamp}</p>
                     </div>
                 </div>
             </div>

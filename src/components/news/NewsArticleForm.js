@@ -32,8 +32,15 @@ export const NewArticleForm = () => {
 
     const handleClickSaveArticle = (event) => {
         event.preventDefault()
+        const newArticleObj = {
+            newsTitle: article.newsTitle,
+            synopsis: article.synopsis,
+            url: article.url,
+            userId: parseInt(sessionStorage.getItem("nutshell_user")),
+            timestamp: Date.now()
+        }
 
-        addArticle(article)
+        addArticle(newArticleObj)
             .then(() => history.push("/"))
     }
 
