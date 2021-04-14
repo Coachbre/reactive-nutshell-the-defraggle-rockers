@@ -1,5 +1,5 @@
 import React from 'react';
-import "./ArticleCard.css";
+import "./NewsArticleCard.css";
 import { Link } from "react-router-dom";
 
 export const ArticleCard = ({ article, handleDeleteArticle }) => {
@@ -8,14 +8,15 @@ export const ArticleCard = ({ article, handleDeleteArticle }) => {
             <div className="card-content">
                 <div className="articles">
                     <div className="article">
-                        <h3>Title <span className="card-articlename">
+                        <h3><span className="card-articlename">
                             {article.newsTitle}
                         </span></h3>
                         <p>Synopsis: {article.synopsis}</p>
-                        <p>URL: {article.url}</p>      
+                        <p>URL:</p><a href="">{article.url}</a>
+                        <p>Timestamp: {Date.now()}</p>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
