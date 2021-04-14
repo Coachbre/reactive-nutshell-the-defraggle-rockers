@@ -14,3 +14,9 @@ export const deleteTask = (id) => {
         method: "DELETE"
     }).then(result => result.json())
 }
+
+export const newTask = () => {
+    return fetch (`${remoteURL}/tasks`, {
+        method: "POST"
+    }).then(result => result.json())
+}

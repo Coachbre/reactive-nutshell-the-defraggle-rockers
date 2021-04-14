@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom"
 //^ will be needed for check box?
 import "./Task.css"
-import { deleteTask } from '../../modules/TaskManager';
+
 
 
 export const TaskCard = ({task, handleDelete}) => (
