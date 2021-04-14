@@ -29,3 +29,9 @@ export const updateArticle = (editedArticle) => {
     body: JSON.stringify(editedArticle)
   }).then(data => data.json());
 }
+
+export const deleteArticle = (id) => {
+  return fetch(`${remoteURL}/articles/${id}`, {
+    method: "DELETE"
+  }).then(result => result.json())
+}
