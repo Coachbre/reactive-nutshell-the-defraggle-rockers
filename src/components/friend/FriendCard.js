@@ -6,7 +6,7 @@ export const FriendCard = ({friend}) => {
     return (
         <section className="friend">
             <img alt="friend_image"/>
-            <h4>{friend.id.name}</h4>
+            <h4>{friend.id}</h4>
             <button>Delete</button>
         </section>
     )
