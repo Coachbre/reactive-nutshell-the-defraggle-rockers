@@ -8,7 +8,9 @@ export const FriendList = () => {
     const [friends, setFriends] = useState([]);
 
     const getFriends = () => {
-        return getAllFriends().then(friendsFromAPI => {
+        const loggedInUserId = sessionStorage.getItem("nutshell_user")
+        
+        return getAllFriends(loggedInUserId).then(friendsFromAPI => {
             setFriends(friendsFromAPI)
         });
     };
