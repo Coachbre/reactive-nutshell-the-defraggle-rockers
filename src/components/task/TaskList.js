@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {TaskCard} from "./TaskCard";
-import {getAllTasks } from '../../modules/TaskManager';
+import {getAllTasks, deleteTask } from '../../modules/TaskManager';
 
 export const TaskList = () => {
     //declaring state variable (as an empty array)
     const [tasks, setTasks] = useState([]);
     /*empty array in useState() is the INITIAL value of tasks, and
     'tasks is the CURRENT value. setAnimals is used to change the value of 'tasks' */
-
     const getTasks = () => {
         //^ getTasks() ultimately returns task array from json
         return getAllTasks()
@@ -19,21 +18,28 @@ export const TaskList = () => {
         });
     };
 
+    const handleDelete = id => {
+        deleteTask(id)
+        .then(() => getAllTasks()
+        .then(setTasks));
+    };
+
     useEffect(() => {
         //useEffect() is used to call the getTasks() function
+        //runs on second render after return reads an empty array
         getTasks();
     }, []);
-    
-
-    return (
-        <div className="task-cards">
-            {tasks.map(task =>
+    return ( //runs the 1st time with empty array, then ^^ useEffect() runs after
+        <div className="container-cards">
+            {tasks.map(taskObj =>
                 //iterates over the array
                 <TaskCard
-                key={task.id}
-                task={task} />   
+                key={taskObj.id} 
+                // unique key needed by react (will work without, but it good convention)
+                task={taskObj}
+                // taskObj from array is set equal to 'task' (a prop thats passed into TaskCard)
+                handleDelete={handleDelete} />
                 )}
-        
         </div>
     );
 };
