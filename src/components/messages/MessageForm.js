@@ -1,38 +1,34 @@
 import React, { useState, useEffect } from 'react';
+import { getAllMessages, addMessage } from '../../modules/MessagesManager';
 import { useHistory } from 'react-router-dom';
-import { addEmployee, getAllEmployees } from '../../modules/EmployeeManager';
-import './EmployeeForm.css';
+import './Messages.css';
 
-export const EmployeeForm = () => {
-	// State will contain both animal data as well as an isLoading flag.
-	// Define the initial state of the form inputs with useState()
+export const MessageForm = () => {
+  const [messageNew, setMessage] = useState({
+      sendingUserId: 0,
+      receivingUserId: 0,
+      message: "",
+      timestamp: 0
+  });
+  const history = useHistory();
 
-	const [employee, setEmployee] = useState({
-		name: "",
-	});
+  const getMessage = () => {
+    return getAllMessages().then(APImessages => {
+      setMessage(APImessages)
+    })
+  }
 
-	const [isLoading, setIsLoading] = useState(false);
 
-	// you will need the the `getAll` in the LocationsManager and CustomersManager to complete this section
-	const [employees, setEmployees] = useState([]);
-	const history = useHistory();
+  useEffect(() => {
+  //load Employee data and setState
+    getMessage();
+  }, []);
 
-	//when a field changes, update state. The return will re-render and display based on the values in state
-	// NOTE! What's happening in this function can be very difficult to grasp. Read it over many times and ask a lot questions about it.
-	//Controlled component
-  
-  const getEmployees = () => {
-    // After the data comes back from the API, we
-    //  use the setAnimals function to update state
-    return getAllEmployees().then(employeessFromAPI => {
-      setEmployees(employeessFromAPI)
-    });
-  };
 
-	const handleControlledInputChange = (event) => {
+  const handleControlledInputChange = (event) => {
 		/* When changing a state object or array,
 		always create a copy, make changes, and then set state.*/
-		const newEmployee = { ...employee }
+		const newMessage = { ...messageNew }
 		let selectedVal = event.target.value
 
 		// forms always provide values as strings. But we want to save the ids as numbers.
@@ -42,39 +38,40 @@ export const EmployeeForm = () => {
 		/* Animal is an object with properties.
 		Set the property to the new value
 		using object bracket notation. */
-		newEmployee[event.target.id] = selectedVal
+		newMessage[event.target.id] = selectedVal
 		// update state
-		setEmployee(newEmployee)
+		setMessage(newMessage)
 	}
 
-     useEffect(() => {
-		//load Employee data and setState
-      getEmployees();
-	  }, []);
-
-
-	const handleClickSaveEmployee = (event) => {
+  const handleClickSaveMessage = (event) => {
 		event.preventDefault() //Prevents the browser from submitting the form
-
-			//invoke addAnimal passing animal as an argument.
-			//once complete, change the url and display the animal list
-		addEmployee(employee)
-			.then(() => history.push("/employees"))
+    const newMessage = {
+      sendingUserId: parseInt(sessionStorage.getItem("nutshell_user")),
+      receivingUserId: 0,
+      message: messageNew.message,
+      timestamp: `${new Date().getMonth()+1} ${new Date().getDate()}, ${new Date().getFullYear()}`
+    }
+    console.log(newMessage)
+		addMessage(newMessage)
+			.then(() => history.push("/messages"))
 	}
 
 	return (
-		<form className="employeeForm">
-			<h2 className="employeeForm__title">New Employee</h2>
-			<fieldset>
-				<div className="form-group">
-					<label htmlFor="name">Employee's Full Name:</label>
-					<input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Employee name" value={employee.name} />
-				</div>
-			</fieldset>
-			<button className="btn btn-primary"
-				onClick={handleClickSaveEmployee}>
-				Save Employee
+    <form className="messageBox">
+    	<h2 className="message__title">Messages</h2>
+    	<fieldset>
+    		<div className="form-group">
+    			<label htmlFor="name">Message Text Here:</label>
+    			<input type="text" id="message" 
+          onChange={handleControlledInputChange} required autoFocus 
+          className="form-control" placeholder="message text" 
+          value={messageNew.message} />
+    		</div>
+    	</fieldset>
+    	<button className="btn btn-primary"
+    		onClick={handleClickSaveMessage}>
+    		Save message
       </button>
-		</form>
+    </form>
 	)
-};
+}
