@@ -11,6 +11,9 @@ import { ArticleList } from "./news/NewsArticleList";
 import { ArticleEditForm } from "./news/NewsArticleEditForm";
 import { NewArticleForm } from "./news/NewsArticleForm";
 import { MessageList } from "./messages/MessageList";
+import { EventList } from "./events/EventList";
+import { NewEventForm } from "./events/EventForm"
+
 
 export const ApplicationViews = () => {
   return (
@@ -25,14 +28,7 @@ export const ApplicationViews = () => {
       </Route>
 
       <Route exact path="/">
-        {/* Render the component for news articles */}
-      </Route>
-
-      <Route exact path="/">
-        <h2>News Articles</h2>
-        <article className="articles">
           <ArticleList />
-        </article>
       </Route>
 
       <Route exact path="/create">
@@ -60,8 +56,12 @@ export const ApplicationViews = () => {
         {/* task form goes here*/}
       </Route>
 
-      <Route path="/events">
-        {/* Render the component for the user's events */}
+      <Route exact path="/events">
+        <EventList />
+      </Route>
+
+      <Route exact path="/events/create">
+        <NewEventForm />
       </Route>
     </>
   )

@@ -14,3 +14,9 @@ export const addEvent = (newEvent) => {
         body: JSON.stringify(newEvent)
     }).then(response => response.json())
 }
+
+export const getEventById = (id) => {
+    return fetch(`${remoteURL}/events/${id}`)
+        .then(res => res.json())
+}
+
