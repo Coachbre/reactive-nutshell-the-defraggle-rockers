@@ -5,6 +5,11 @@ export const getAllFriends = (currentUserId) => {
     .then(res => res.json());
 }
 
+export const getAllUsers = () => {
+    return fetch (`${remoteURL}/users`)
+    .then(res => res.json());
+}
+
 export const deleteFriend = (id) => {
     return fetch(`${remoteURL}/friends/${id}`, {
         method: "DELETE"
