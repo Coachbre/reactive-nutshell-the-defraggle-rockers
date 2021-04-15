@@ -2,13 +2,12 @@ import React from "react";
 import "./Friend.css";
 import { Link } from "react-router-dom";
 
-export const FriendCard = ({friend}) => {
-    console.log(friend)
+export const FriendCard = ({friend, handleDeleteFriend}) => {
     return (
         <section className="friend-card">
-            <img alt="friend_image"/>
+            <img  src={require("./friend.jpg")} alt="friend_image"/>
             <h4>{friend.user.name}</h4>
-            <button>Delete</button>
+            <button type="button" onClick={() => handleDeleteFriend(friend.id)}>Delete</button>
         </section>
     )
 }
