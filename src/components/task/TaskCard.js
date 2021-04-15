@@ -10,7 +10,6 @@ export const TaskCard = ({task, handleDelete}) => (
     //will need to add isComplete boolean 
     <section className="task">
         <h2 className="task_name">Task: {task.name}</h2>
-        <h3 className="task_description">Description: {task.description}</h3>
         <div className="task_dueDate">Due date: {task.dueDate}</div>
         <button type="button" onClick={() => handleDelete(task.id)}>Remove Task</button>
     </section> //why is onClick formatted like this ^

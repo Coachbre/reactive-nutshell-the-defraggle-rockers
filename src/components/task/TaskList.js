@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 import {TaskCard} from "./TaskCard";
 import {getAllTasks, deleteTask } from '../../modules/TaskManager';
 
@@ -27,6 +27,9 @@ export const TaskList = () => {
         //then fetches new array and sets as 'Tasks'
     };
 
+    let history = useHistory();
+    //called in button for new task creation
+
     useEffect(() => {
         //useEffect() is used to call the getTasks() function
         //runs on second render after return reads an empty array
@@ -38,11 +41,11 @@ export const TaskList = () => {
         //runs the 1st time with empty array, then ^^ useEffect() runs after
         <div className="container-cards">
              <section className="section-content">
-                 <Link to={`/taskForm`}>
-                    <button type="button">
+             <button type="button"
+                        className="btn btn-primary"
+                        onClick={() => { history.push("/tasks/entry") }}>
                         Create New Task
-                    </button>
-                </Link>
+                        </button>
             </section>
             {tasks.map(taskObj =>
                 //iterates over the array
