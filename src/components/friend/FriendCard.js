@@ -3,7 +3,6 @@ import "./Friend.css";
 import { Link } from "react-router-dom";
 
 export const FriendCard = ({friend, handleDeleteFriend}) => {
-    console.log(friend)
     return (
         <section className="friend-card">
             <img  src={require("./friend.jpg")} alt="friend_image"/>
