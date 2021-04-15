@@ -2,15 +2,12 @@ import React, { useState, useEffect } from "react";
 import {useHistory} from "react-router-dom"
 import { FriendCard } from "./FriendCard";
 import { getAllFriends, deleteFriend } from "../../modules/FriendsManager"
-import { useHistory } from "react-router-dom"
 
 export const FriendList = () => {
 
-    const history = useHistory()
+    let history = useHistory()
 
     const [friends, setFriends] = useState([]);
-
-    let history = useHistory()
 
     const getFriends = () => {
         const loggedInUserId = sessionStorage.getItem("nutshell_user")
