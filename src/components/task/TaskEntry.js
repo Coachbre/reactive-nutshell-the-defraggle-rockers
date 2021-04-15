@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import { addTask } from '../../modules/TaskManager';
 
 
-export const taskEntry = () => {
+export const TaskEntry = () => {
 
     const [task, setTask] = useState({
         //defines initial state of 'task'
@@ -11,7 +11,7 @@ export const taskEntry = () => {
         dueDate: "",
     });
 
-    const [isLoading, setIsLoading] = useState(false);
+    // ***** const [isLoading, setIsLoading] = useState(false); *****
 
     const history= useHistory();
 
@@ -36,7 +36,7 @@ export const taskEntry = () => {
 
     const handleClickSaveTask = (event) => {
         addTask(task)
-            .then(() => history.push("/tasks"))
+            .then(() => history.push("/tasks/"))
              /*invoke addTask from TaskManager.js passing 'task' as argument, then 
              go back to task list page */
     }
@@ -57,6 +57,9 @@ export const taskEntry = () => {
                     <input type="date" id="dueDate" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Date" value={task.dueDate} />
                 </div>
             </fieldset>
+            <button className="btn btn-primary" onClick={handleClickSaveTask}>
+                Save Task
+            </button>
         </form>
     )
 };
