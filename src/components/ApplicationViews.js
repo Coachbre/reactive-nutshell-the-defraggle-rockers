@@ -5,6 +5,7 @@ import { Register } from "./auth/Register";
 import { TaskList } from "./task/TaskList";
 import { FriendList } from "./friend/FriendList"
 import { ArticleList } from "./news/NewsArticleList";
+import { ArticleEditForm } from "./news/NewsArticleEditForm";
 import { NewArticleForm } from "./news/NewsArticleForm";
 import { MessageList } from "./messages/MessageList";
 import { FriendForm } from "./friend/AddFriendForm"
@@ -34,6 +35,10 @@ export const ApplicationViews = () => {
 
       <Route exact path="/create">
         <NewArticleForm />
+      </Route>
+
+      <Route exact path="/articles/:articleId(\d+)/edit">
+        <ArticleEditForm />
       </Route>
 
       <Route path="/friends">
