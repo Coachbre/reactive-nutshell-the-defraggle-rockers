@@ -3,13 +3,11 @@ import { Route, Redirect } from "react-router-dom";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 import { TaskList } from "./task/TaskList";
-
-
-
 import { FriendList } from "./friend/FriendList"
 import { ArticleList } from "./news/NewsArticleList";
 import { NewArticleForm } from "./news/NewsArticleForm";
 import { MessageList } from "./messages/MessageList";
+import { FriendForm } from "./friend/AddFriendForm"
 
 export const ApplicationViews = () => {
   return (
@@ -40,6 +38,10 @@ export const ApplicationViews = () => {
 
       <Route path="/friends">
         <FriendList />
+      </Route>
+
+      <Route path="/friends/add">
+        <FriendForm />
       </Route>
 
       <Route path="/messages">
