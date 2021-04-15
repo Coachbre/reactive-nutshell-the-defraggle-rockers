@@ -22,15 +22,18 @@ export const MessageList = () => {
   }, []);
   
 	return (
-    <div className='allMessages'>
-      <div className='messageList'>
-        {messages.map(singleMessage => 
-          <MessageCard key={singleMessage.id} cardMessage={singleMessage}/>
-        )}
+    <section>
+      <div className='allMessages'>
+        <div className='messageList'>
+          {messages.map(singleMessage => 
+            <MessageCard key={singleMessage.id} cardMessage={singleMessage}/>
+          )}
+        </div>
+        <div>
+          <MessageForm getMessages={getMessages}/>
+        </div>
       </div>
-      <div>
-        <MessageForm getMessages={getMessages}/>
-      </div>
-    </div>
+      <aside></aside>
+    </section>
 	)
 }
