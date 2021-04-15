@@ -16,11 +16,11 @@ export const MessageList = () => {
   }
 
 
-    useEffect(() => {
+  useEffect(() => {
   //load Employee data and setState
     getMessages();
   }, []);
-
+  
 	return (
     <div className='allMessages'>
       <div className='messageList'>
@@ -29,7 +29,7 @@ export const MessageList = () => {
         )}
       </div>
       <div>
-        <MessageForm />
+        <MessageForm getMessages={getMessages}/>
       </div>
     </div>
 	)

@@ -3,12 +3,12 @@ import { getAllMessages, addMessage } from '../../modules/MessagesManager';
 import { useHistory } from 'react-router-dom';
 import './Messages.css';
 
-export const MessageForm = () => {
+export const MessageForm = ({getMessages}) => {
   const [message, setMessage] = useState({
     message: ''
   });
   const history = useHistory();
-
+  
 
   const handleControlledInputChange = (event) => {
 		/* When changing a state object or array,
@@ -31,7 +31,7 @@ export const MessageForm = () => {
     }
     console.log(newMessage)
 		addMessage(newMessage)
-			.then(() => history.push("/messages"))
+			.then(getMessages())
 	}
 
 	return (
