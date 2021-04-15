@@ -40,12 +40,14 @@ export const TaskList = () => {
         
         //runs the 1st time with empty array, then ^^ useEffect() runs after
         <div className="container-cards">
+            <h1>To Do List</h1>
              <section className="section-content">
              <button type="button"
                         className="btn btn-primary"
                         onClick={() => { history.push("/tasks/entry") }}>
                         Create New Task
                         </button>
+
             </section>
             {tasks.map(taskObj =>
                 //iterates over the array

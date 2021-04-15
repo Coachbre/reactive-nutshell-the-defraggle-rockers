@@ -35,7 +35,7 @@ export const TaskEntry = () => {
       
     }
 
-    const handleClickSaveTask = (event) => {
+    const handleClickSaveTask = () => {
         addTask(task)
             .then(() => history.push("/tasks/"))
              /*invoke addTask from TaskManager.js passing 'task' as argument, then 
@@ -59,8 +59,8 @@ export const TaskEntry = () => {
                 </div>
             </fieldset>
             
-            <Link to={`/tasks`} onClick={handleClickSaveTask}>
-            <button className="btn btn-primary" >
+            <Link to={`/tasks`} >
+            <button className="btn btn-primary" onClick={handleClickSaveTask} >
                 Save Task
             </button>
             </Link>
