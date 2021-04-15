@@ -28,7 +28,6 @@ export const ArticleEditForm = () => {
             timestamp: article.timestamp,
             userId: article.userId
         };
-        console.log(editedArticle)
 
         updateArticle(editedArticle)
             .then(() => history.push("/")
