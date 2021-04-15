@@ -65,3 +65,14 @@ fieldset .alignRight {
   margin-left: 5em;
   margin-right: 5em;
 }
+
+.allMessages {
+  padding-left: 5em;
+}
+
+.messageCard {
+  border: blue solid 4px;
+  width: 18%;
+  padding-left: 1em;
+  margin: 10px;
+}
