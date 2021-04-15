@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
+import { Link } from "react-router-dom";
 import { addTask } from '../../modules/TaskManager';
 
 
@@ -57,9 +58,13 @@ export const TaskEntry = () => {
                     <input type="date" id="dueDate" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Date" value={task.dueDate} />
                 </div>
             </fieldset>
-            <button className="btn btn-primary" onClick={handleClickSaveTask}>
+            
+            <Link to={`/tasks`} onClick={handleClickSaveTask}>
+            <button className="btn btn-primary" >
                 Save Task
             </button>
+            </Link>
+            
         </form>
     )
 };
