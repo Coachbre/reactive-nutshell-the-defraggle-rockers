@@ -14,9 +14,8 @@ export const TaskCard = ({task, handleDelete}) => (
         <div className="task_dueDate">Complete by: {task.dueDate}</div>
 
         <div>   
-            <input type="checkbox" id="checkbox"> 
-                
-                
+            <input type="checkbox" id="checkbox" onClick={() => hideTask(task.id)}> 
+                {/*I think the label should go here, but its not working. FOR NOW*/}                
             </input>
             <br></br>
         </div>

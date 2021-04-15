@@ -19,6 +19,11 @@ export const TaskList = () => {
         });
     };
 
+    const hideTask = () => { 
+     
+        };
+    
+
     const handleDelete = id => {
         deleteTask(id)
         //handleDelete calls deleteTask from TaskManager
@@ -26,6 +31,8 @@ export const TaskList = () => {
         .then(setTasks));
         //then fetches new array and sets as 'Tasks'
     };
+
+    
 
     let history = useHistory();
     //called in button for new task creation
@@ -53,10 +60,11 @@ export const TaskList = () => {
                 //iterates over the array
                 <TaskCard
                 key={taskObj.id} 
-                // unique key needed by react (will work without, but it good convention)
+                // unique key needed by react (will work without, but is good convention)
                 task={taskObj}
                 // taskObj from array is set equal to 'task' (a prop thats passed into TaskCard)
-                handleDelete={handleDelete} />
+                handleDelete={handleDelete} 
+                hideTask={hideTask}/>
                 )}
         </div>
     );
