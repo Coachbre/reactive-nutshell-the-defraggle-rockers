@@ -2,12 +2,12 @@ import React from "react";
 import "./Friend.css";
 import { Link } from "react-router-dom";
 
-export const UserCard = () => {
+export const UserCard = ({user, handleAddFriend}) => {
     return (
         <section className="user-card">
             <img  src={require("./friend.jpg")} alt="user-image"/>
-            <h4>userName</h4>
-            <button type="button">Add</button>
+            <h4>{user.name}</h4>
+            <button type="button" onClick={handleAddFriend(user.id)}>Add</button>
         </section>
     )
 }

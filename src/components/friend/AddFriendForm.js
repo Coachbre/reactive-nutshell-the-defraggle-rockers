@@ -7,15 +7,31 @@ export const FriendForm = () => {
 
     let history = useHistory()
 
+    const loggedInUserId = sessionStorage.getItem("nutshell_user")
+
     const [users, setUsers] = useState([]);
+    const [friend, setFriends] = useState({
+        loggedInUserId: loggedInUserId,
+        userId: 0
+    });
 
     const [isLoading, setIsLoading] = useState(false);
 
     const getUsers = () => {
-        return getAllUsers().then(usersFromApi => {
-            setUsers(usersFromApi)
+        return getAllUsers().then(usersFromAPI => {
+            setUsers(usersFromAPI)
         });
     };
+
+    const handleAddFriend = (id) => {
+        const newFriend = {
+            loggedInUserId: loggedInUserId,
+            userId: id
+        } 
+
+        addFriend(newFriend)
+        .then(() => history.push("/friends"))
+    }
 
     useEffect(() => {
         getUsers();
@@ -28,7 +44,12 @@ export const FriendForm = () => {
                 <input placeholder="Search..."></input>
                     <button>Search</button>
             </form>
-            {}
+            {users.map(user => 
+                <UserCard
+                    key={user.id}
+                    user={user}
+                    handleAddFriend={handleAddFriend}
+                    />)}
         </section>
     )
 }
