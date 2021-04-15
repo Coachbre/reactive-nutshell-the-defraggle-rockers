@@ -22,9 +22,13 @@ export const ArticleEditForm = () => {
 
         const editedArticle = {
             id: articleId,
-            title: article.newsTitle,
-            synopsis: article.synopsis
+            newsTitle: article.newsTitle,
+            synopsis: article.synopsis,
+            url: article.url,
+            timestamp: article.timestamp,
+            userId: article.userId
         };
+        console.log(editedArticle)
 
         updateArticle(editedArticle)
             .then(() => history.push("/")
