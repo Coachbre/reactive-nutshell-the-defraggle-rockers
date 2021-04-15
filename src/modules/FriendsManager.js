@@ -6,7 +6,7 @@ export const getAllFriends = (currentUserId) => {
 }
 
 export const deleteFriend = (id) => {
-    return fetch(`${remoteURL}/friends/{id}`, {
+    return fetch(`${remoteURL}/friends/${id}`, {
         method: "DELETE"
     }).then(result => result.json())
 }
