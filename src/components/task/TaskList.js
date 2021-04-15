@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import {TaskCard} from "./TaskCard";
 import {getAllTasks, deleteTask } from '../../modules/TaskManager';
 
@@ -20,8 +21,10 @@ export const TaskList = () => {
 
     const handleDelete = id => {
         deleteTask(id)
+        //handleDelete calls deleteTask from TaskManager
         .then(() => getAllTasks()
         .then(setTasks));
+        //then fetches new array and sets as 'Tasks'
     };
 
     useEffect(() => {
@@ -29,8 +32,18 @@ export const TaskList = () => {
         //runs on second render after return reads an empty array
         getTasks();
     }, []);
-    return ( //runs the 1st time with empty array, then ^^ useEffect() runs after
+    return (
+       
+        
+        //runs the 1st time with empty array, then ^^ useEffect() runs after
         <div className="container-cards">
+             <section className="section-content">
+                 <Link to={`/taskForm`}>
+                    <button type="button">
+                        Create New Task
+                    </button>
+                </Link>
+            </section>
             {tasks.map(taskObj =>
                 //iterates over the array
                 <TaskCard
