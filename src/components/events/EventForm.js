@@ -60,7 +60,7 @@ export const NewEventForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Event Location</label>
-                    <input type="text" id="location" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Event location" value={events.location} />
+                    <input type="date" id="location" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Event location" value={events.location} />
                 </div>
             </fieldset>
             <Link to={`/events`}>
