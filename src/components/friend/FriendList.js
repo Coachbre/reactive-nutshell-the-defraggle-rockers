@@ -20,7 +20,7 @@ export const FriendList = () => {
 
     const handleDeleteFriend = (id) => {
         deleteFriend(id)
-        .then(() => getAllFriends().then(setFriends));
+        .then(() => getFriends());
     };
 
     useEffect(() => {
