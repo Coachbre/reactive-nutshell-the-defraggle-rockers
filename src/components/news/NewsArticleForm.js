@@ -14,7 +14,7 @@ export const NewArticleForm = () => {
 
     const [isLoading, setIsLoading] = useState(false)
 
-    const history = useHistory();
+    let history = useHistory();
 
     const handleControlledInputChange = (event) => {
 
