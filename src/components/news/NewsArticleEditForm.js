@@ -10,14 +10,14 @@ export const ArticleEditForm = () => {
     const { articleId } = useParams();
     const history = useHistory();
 
-    const handleFieldChange = evt => {
+    const handleFieldChange = event => {
         const stateToChange = { ...article };
-        stateToChange[evt.target.id] = evt.target.value;
+        stateToChange[event.target.id] = event.target.value;
         setArticle(stateToChange);
     };
 
-    const updateExistingArticle = evt => {
-        evt.preventDefault()
+    const updateExistingArticle = event => {
+        event.preventDefault()
         setIsLoading(true);
 
         const editedArticle = {
@@ -42,8 +42,9 @@ export const ArticleEditForm = () => {
     return (
         <>
             <form>
+                <h2 className="editForm_title">Edit News Article</h2>
                 <fieldset>
-                    <div className="formGrid">
+                    <div className="formgrid">
                         <input
                             type="text"
                             required
@@ -66,7 +67,7 @@ export const ArticleEditForm = () => {
                     </div>
                     <div className="alignRight">
                         <Link to={"/"}>
-                            Back
+                            <button>Back</button>
                         </Link>
                     </div>
                     <div className="alignRight">

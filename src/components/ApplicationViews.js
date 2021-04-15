@@ -39,7 +39,7 @@ export const ApplicationViews = () => {
         <NewArticleForm />
       </Route>
 
-      <Route exact path="/:articleId(\d+)edit">
+      <Route exact path="/articles/:articleId(\d+)/edit">
         <ArticleEditForm />
       </Route>
 
