@@ -19,8 +19,8 @@ export const TaskList = () => {
         });
     };
 
-    const hideTask = () => { 
-     
+    const handleHideTask = () => { 
+     //if checked, api will change isComplete? to true  ... then filter array to ony render isComplete:false 
         };
     
 
@@ -64,7 +64,7 @@ export const TaskList = () => {
                 task={taskObj}
                 // taskObj from array is set equal to 'task' (a prop thats passed into TaskCard)
                 handleDelete={handleDelete} 
-                hideTask={hideTask}/>
+                handleHideTask={handleHideTask}/>
                 )}
         </div>
     );
