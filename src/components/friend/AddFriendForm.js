@@ -1,16 +1,11 @@
-import {addFriend} from "../../modules/FriendsManager"
+import { getAllFriends, addFriend } from "../../modules/FriendsManager"
+import { friendCard } from "./FriendCard"
 
 export const FriendForm = () => {
-    // this.setState({
-
-    // })
-
-    // const frinedsFilter = (event) => 
-    // return (
-    //     <section>
-    //         <input>search for friend</input>
-    //     </section>
-    // )
+    return (
+        <section>
+            <input>search for friend</input>
+        </section>
+    )
 }
 
-//on change
