@@ -2,6 +2,8 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
+
+import { TaskForm } from "./task/TaskEntry"
 import { TaskList } from "./task/TaskList";
 
 
@@ -47,12 +49,13 @@ export const ApplicationViews = () => {
       </Route>
 
       <Route path="/tasks">
-        <h1>Tasks</h1>
+        <h1>To Do List</h1>
         <TaskList />
       </Route>
 
-      <Route exact path="/taskForm">
-        {/* task form goes here*/}
+      <Route exact path="/tasks/entry">
+        <h1>Whats Up Next?</h1>
+        {/* <TaskEntry/> */}
       </Route>
 
       <Route path="/events">
