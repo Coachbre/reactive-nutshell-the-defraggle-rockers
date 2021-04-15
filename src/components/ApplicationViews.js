@@ -41,7 +41,7 @@ export const ApplicationViews = () => {
         <ArticleEditForm />
       </Route>
 
-      <Route path="/friends">
+      <Route exact path="/friends">
         <FriendList />
       </Route>
 

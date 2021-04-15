@@ -11,7 +11,7 @@ export const deleteFriend = (id) => {
     }).then(result => result.json())
 }
  
-export const addFriend = (newFriend ) => {
+export const addFriend = (newFriend) => {
     return fetch(`${remoteURL}/friends`,{
         method: "POST",
         headers: {
