@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FriendCard } from "./FriendCard";
-import { getAllFriends } from "../../modules/FriendsManager"
+import { getAllFriends, deleteFriend } from "../../modules/FriendsManager"
 // may need deleteFriend getAllFriends getFriendById from the friends data manager
 
 export const FriendList = () => {
@@ -15,6 +15,11 @@ export const FriendList = () => {
         });
     };
 
+    const handleDeleteFriend = (id) => {
+        deleteFriend(id)
+        .then(() => getAllFriends().then(setFriends));
+    };
+
     useEffect(() => {
         getFriends();
     }, []);
@@ -27,7 +32,8 @@ export const FriendList = () => {
                 {friends.map(friend =>
                     <FriendCard
                         key={friend.id}
-                        friend={friend} />
+                        friend={friend}
+                        handleDeleteFriend={handleDeleteFriend}  />
                 )}
             </section>
         </>
