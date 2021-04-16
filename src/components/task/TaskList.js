@@ -65,16 +65,20 @@ export const TaskList = () => {
                         </button>
 
             </section>
-            {tasks.map(taskObj =>
+            {tasks.map(taskObj => {
                 //iterates over the array
-                <TaskCard
-                    key={taskObj.id}
-                    // unique key needed by react (will work without, but is good convention)
-                    task={taskObj}
-                    // taskObj from array is set equal to 'task' (a prop thats passed into TaskCard)
-                    handleDelete={handleDelete}
-                    handleHideTask={handleHideTask} />
-            )}
+                if (taskObj.isComplete === false) {
+                 return (
+                  <TaskCard
+                        key={taskObj.id}
+                        // unique key needed by react (will work without, but is good convention)
+                        task={taskObj}
+                        // taskObj from array is set equal to 'task' (a prop thats passed into TaskCard)
+                        handleDelete={handleDelete}
+                        handleHideTask={handleHideTask} />
+                 )
+                }
+        })}
         </div>
     );
 };
