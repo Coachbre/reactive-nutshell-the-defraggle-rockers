@@ -4,9 +4,9 @@ import "./Task.css"
 
 
 
-export const TaskCard = ({task, handleDelete, handleHideTask}) => (
-    //'task' is prop thats equal to each taskObj in array- being passed in from TaskList() return
-    //will need to add isComplete boolean 
+export const TaskCard = ({task, handleDelete, handleHideTask, handleEditTask}) => (
+    //'task, handleDelete, handleHideTask, handleEditTask' are props being passed in from TaskList() return
+
     <section className="task">
         <h2 className="task_name">{task.name}</h2>
  
@@ -18,7 +18,7 @@ export const TaskCard = ({task, handleDelete, handleHideTask}) => (
             <br></br>
         </div>
 
-        <button type="button" onClick={() => handleEdit(task.id)}>Edit Task</button>
+        <button type="button" onClick={() => handleEditTask(task.id)}>Edit Task</button>
 
         <button type="button" onClick={() => handleDelete(task.id)}>Delete Task</button>
     </section> //why is onClick formatted like this? ^

@@ -12,8 +12,9 @@ export const TaskList = () => {
         //^ getTasks() ultimately returns task array from json
         return getAllTasks()
             //^ getAllTasks() fetches json info
-            .then(tasksFromAPI /*taco*/ => {
+            .then((tasksFromAPI /*taco*/) => {
                 setTasks(tasksFromAPI /*taco*/)
+
                 /* waits for data then 'setTasks' sets the 'tasks'
                 variable equal to API data */
             });
@@ -34,7 +35,9 @@ export const TaskList = () => {
 
     const handleEditTask = task => {
         editTask(task)
-    }
+            .then(() => getAllTasks()
+                .then(setTasks));
+    };
 
 
     const handleDelete = id => {
@@ -80,7 +83,8 @@ export const TaskList = () => {
                         task={taskObj}
                         // taskObj from array is set equal to 'task' (a prop thats passed into TaskCard)
                         handleDelete={handleDelete}
-                        handleHideTask={handleHideTask} />
+                        handleHideTask={handleHideTask}
+                        handleEditTask={handleEditTask} />
                  )
                 }
         })}

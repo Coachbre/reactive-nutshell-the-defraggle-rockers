@@ -9,12 +9,29 @@ export const TaskEdit = (id) => {
         name: task.id,
         dueDate: task.dueDate,
         isComplete: false
+        // ^ initial value of 'task'
     });
     const [isLoading, setIsLoading] = useState(false);
     //prevents user from submitting multiple times while data is being updated
      
     const {taskId} = useParams();
     const history = useHistory();
+
+    const handleFieldChange = (event) => {
+        const changedTask = { ...task };
+        //changedTask is now equal to the copy of 'task'
+
+        changedTask[event.target.id] = event.target.value;
+        //value of the changed task = use rinput
+        setTask(changedTask);
+        //sets current value of 'task' equal to 'stateToChange'
+    };
+
+    const handleClickEditTask = () => {
+        editTask(task)
+        .then(() => history.push("/tasks/"))
+    }
+
     return (
         <form className="taskEdit">
             <h2 className="taskForm_title">Change Your Task</h2>
