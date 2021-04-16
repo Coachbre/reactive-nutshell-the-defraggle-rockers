@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { updateEvent, getEventById } from "../../modulesEventManager";
+import { updateEvent, getEventById } from "../../modules/EventManager";
 import "./EventForm.css";
 import { useHistory, useParams, Link } from "react-router-dom"
 
@@ -10,7 +10,7 @@ export const EventEditForm = () => {
     const { eventId } = useParams();
     const history = useHistory();
 
-    const handleExistingEvent = evt => {
+    const handleFieldChange = evt => {
         const stateToChange = { ...events };
         stateToChange[evt.target.id] = evt.target.value;
         setEvents(stateToChange);
@@ -44,11 +44,51 @@ export const EventEditForm = () => {
     return (
         <>
             <form>
+                <h2 className="editForm_title">Edit This Event</h2>
                 <fieldset>
                     <div className="formgrid">
-                        
+                        <input
+                            type="text"
+                            requiredclassName="form-control"
+                            onChange={handleFieldChange}
+                            id="name"
+                            value={events.name}
+                        />
+                        <label htmlFor="name">Name</label>
+
+                        <input 
+                            type="date"
+                            required
+                            className="form-control"
+                            onChange={handleFieldChange}
+                            id="date"
+                            value={events.date}
+                        />
+                        <label htmlFor="date">Date</label>
+
+                        <input
+                            type="text"
+                            required
+                            className="form-control"
+                            onChange={handleFieldChange}
+                            id="location"
+                            value={events.location}
+                        />
+                    </div>
+                    <div className="alignRight">
+                        <Link to={"/events"}>
+                            <button>Back</button>
+                        </Link>
+                    </div>
+                    <div className="alignRight">
+                        <button
+                            type="button" disabled={isLoading}
+                            onClick={updateExistingEvent}
+                            className="btn btn-primary"
+                        >Save Changed</button>
                     </div>
                 </fieldset>
             </form>
+        </>
     )
 }

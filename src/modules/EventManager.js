@@ -20,3 +20,13 @@ export const getEventById = (id) => {
         .then(res => res.json())
 }
 
+export const updateEvent = (editedEvent) => {
+    return fetch(`${remoteURL}/events/${editedEvent.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editedEvent)
+    }).then(data => data.json())
+}
+
