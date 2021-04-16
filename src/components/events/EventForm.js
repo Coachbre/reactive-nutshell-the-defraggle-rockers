@@ -54,7 +54,7 @@ export const NewEventForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Event Date:</label>
-                    <input type="text" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Event date" value={events.date} />
+                    <input type="date" id="date" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Event date" value={events.date} />
                 </div>
             </fieldset>
             <fieldset>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
-// import { EventCard } from "./EventCard";
+import { EventCard } from "./EventCard";
 import { getAllEvents, deleteEvent } from "../../modules/EventManager";
 import "./EventList.css";
 
@@ -34,6 +34,11 @@ export const EventList = () => {
                         Add New Event
                     </button>
                 </section>
+                {events.map(event => <EventCard
+                    key={event.id}
+                    event={event}
+                    />
+                    )}
             </div>
         </>
     )
