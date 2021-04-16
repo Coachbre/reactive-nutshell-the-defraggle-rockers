@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router";
 import { TaskCard } from "./TaskCard";
-import { getAllTasks, deleteTask, hideTask } from '../../modules/TaskManager';
+import { getAllTasks, deleteTask, hideTask, editTask } from '../../modules/TaskManager';
 
 export const TaskList = () => {
     //declaring state variable (as an empty array)
@@ -31,6 +31,10 @@ export const TaskList = () => {
                 })
             )
     };
+
+    const handleEditTask = task => {
+        editTask(task)
+    }
 
 
     const handleDelete = id => {
@@ -68,6 +72,7 @@ export const TaskList = () => {
             {tasks.map(taskObj => {
                 //iterates over the array
                 if (taskObj.isComplete === false) {
+                    // Only return a secific task card if isComplete = false (checkbox not selected)
                  return (
                   <TaskCard
                         key={taskObj.id}

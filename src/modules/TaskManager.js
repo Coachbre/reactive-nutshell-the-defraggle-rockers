@@ -22,6 +22,18 @@ export const hideTask = (task) => {
     }).then(result => result.json())
 }
 
+export const editTask = (task) => {
+    return fetch(`${remoteURL}/tasks/${task.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+          // ^ security
+        },
+        body: JSON.stringify(task)
+        //stringifies newTask thats passed in
+    }).then(result => result.json())
+}
+
 export const deleteTask = (id) => {
     return fetch(`${remoteURL}/tasks/${id}`, {
         method: "DELETE"
