@@ -33,7 +33,6 @@ export const MessageList = () => {
           <MessageForm getMessages={getMessages}/>
         </div>
       </div>
-      <aside></aside>
     </section>
 	)
 }

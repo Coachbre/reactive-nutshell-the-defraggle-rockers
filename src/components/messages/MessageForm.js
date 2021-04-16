@@ -29,6 +29,11 @@ export const MessageForm = ({getMessages}) => {
       message: message.message,
       timestamp: `${new Date().getMonth()+1} ${new Date().getDate()}, ${new Date().getFullYear()}`
     }
+
+    if(newMessage.message.startsWith('@')){
+      let regularExpression = /(?<=\@)(.*?)(?=\s{2})/;
+    }
+
     console.log(newMessage)
 		addMessage(newMessage)
 			.then(getMessages())
