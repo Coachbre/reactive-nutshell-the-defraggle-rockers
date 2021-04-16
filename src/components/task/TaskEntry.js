@@ -7,9 +7,11 @@ import { addTask } from '../../modules/TaskManager';
 export const TaskEntry = () => {
 
     const [task, setTask] = useState({
-        //defines initial state of 'task'
+        /*defines initial state of 'task'
+        isComplete is automatically set to false */
         name: "",
         dueDate: "",
+        isComplete: false
     });
 
     // ***** const [isLoading, setIsLoading] = useState(false); *****
