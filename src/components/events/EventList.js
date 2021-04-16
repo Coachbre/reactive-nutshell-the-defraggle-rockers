@@ -3,9 +3,10 @@ import { useHistory } from "react-router";
 import { EventCard } from "./EventCard";
 import { getAllEvents, deleteEvent } from "../../modules/EventManager";
 import "./EventList.css";
+import { getAllArticles } from "../../modules/NewsArticleManager";
 
 export const EventList = () => {
-    
+
     const [events, setEvents] = useState([]);
 
     let history = useHistory();
@@ -16,6 +17,12 @@ export const EventList = () => {
                 setEvents(eventsFromAPI)
             });
     };
+
+    const handleDeleteEvent = id => {
+        deleteEvent(id)
+            .then(() => getAllEvents()
+                .then(setEvents))
+    }
 
     useEffect(() => {
         getEvents()
@@ -30,15 +37,18 @@ export const EventList = () => {
                 <section className="section-content">
                     <button type="button"
                         className="btn btn-primary"
-                        onClick={() => {history.push("/events/create") }}>
+                        onClick={() => { history.push("/events/create") }}>
                         Add New Event
                     </button>
                 </section>
-                {events.map(event => <EventCard
-                    key={event.id}
-                    event={event}
+                <section className="eventCardList">
+                    {events.map(event => <EventCard
+                        key={event.id}
+                        event={event}
+                        handleDeleteEvent={handleDeleteEvent}
                     />
                     )}
+                </section>
             </div>
         </>
     )

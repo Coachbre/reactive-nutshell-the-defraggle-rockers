@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router";
-import {TaskCard} from "./TaskCard";
-import {getAllTasks, deleteTask } from '../../modules/TaskManager';
+import { TaskCard } from "./TaskCard";
+import { getAllTasks, deleteTask, hideTask } from '../../modules/TaskManager';
 
 export const TaskList = () => {
     //declaring state variable (as an empty array)
@@ -11,21 +11,37 @@ export const TaskList = () => {
     const getTasks = () => {
         //^ getTasks() ultimately returns task array from json
         return getAllTasks()
-        //^ getAllTasks() fetches json info
-        .then(tasksFromAPI /*taco*/ => {
-            setTasks(tasksFromAPI /*taco*/)
-            /* waits for data then 'setTasks' sets the 'tasks'
-            variable equal to API data */
-        });
+            //^ getAllTasks() fetches json info
+            .then(tasksFromAPI /*taco*/ => {
+                setTasks(tasksFromAPI /*taco*/)
+                /* waits for data then 'setTasks' sets the 'tasks'
+                variable equal to API data */
+            });
     };
+
+
+    const handleHideTask = task => {
+        hideTask(task)
+            .then(() => getAllTasks()
+                .then(res => {
+                   const filteredTasks = res.filter(task => task.isComplete === false)
+                   // 'filteredTasks' is filtering the response and returning only isComplete: false
+                    setTasks(filteredTasks)
+                    //setTasks is setting 'filteredTasks' equal to 'tasks' then setting as current state
+                })
+            )
+    };
+
 
     const handleDelete = id => {
         deleteTask(id)
-        //handleDelete calls deleteTask from TaskManager
-        .then(() => getAllTasks()
-        .then(setTasks));
+            //handleDelete calls deleteTask from TaskManager
+            .then(() => getAllTasks()
+                .then(setTasks));
         //then fetches new array and sets as 'Tasks'
     };
+
+
 
     let history = useHistory();
     //called in button for new task creation
@@ -36,26 +52,33 @@ export const TaskList = () => {
         getTasks();
     }, []);
     return (
-       
-        
+
+
         //runs the 1st time with empty array, then ^^ useEffect() runs after
         <div className="container-cards">
-             <section className="section-content">
-             <button type="button"
-                        className="btn btn-primary"
-                        onClick={() => { history.push("/tasks/entry") }}>
-                        Create New Task
+            <h1>To Do List</h1>
+            <section className="section-content">
+                <button type="button"
+                    className="btn btn-primary"
+                    onClick={() => { history.push("/tasks/entry") }}>
+                    Create New Task
                         </button>
+
             </section>
-            {tasks.map(taskObj =>
+            {tasks.map(taskObj => {
                 //iterates over the array
-                <TaskCard
-                key={taskObj.id} 
-                // unique key needed by react (will work without, but it good convention)
-                task={taskObj}
-                // taskObj from array is set equal to 'task' (a prop thats passed into TaskCard)
-                handleDelete={handleDelete} />
-                )}
+                if (taskObj.isComplete === false) {
+                 return (
+                  <TaskCard
+                        key={taskObj.id}
+                        // unique key needed by react (will work without, but is good convention)
+                        task={taskObj}
+                        // taskObj from array is set equal to 'task' (a prop thats passed into TaskCard)
+                        handleDelete={handleDelete}
+                        handleHideTask={handleHideTask} />
+                 )
+                }
+        })}
         </div>
     );
 };

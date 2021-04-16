@@ -30,3 +30,9 @@ export const updateEvent = (editedEvent) => {
     }).then(data => data.json())
 }
 
+export const deleteEvent = (id) => {
+    return fetch(`${remoteURL}/events/${id}`, {
+        method: "DELETE"
+    }).then(result => result.json())
+}
+
