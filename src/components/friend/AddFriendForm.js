@@ -26,8 +26,10 @@ export const FriendForm = () => {
     const handleAddFriend = (id) => {
         const newFriend = {
             loggedInUserId: loggedInUserId,
-            userId: id
+            userId: parseInt(id)
         } 
+
+        // getUsers().then()
 
         addFriend(newFriend)
         .then(() => history.push("/friends"))
