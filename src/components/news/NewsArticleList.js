@@ -19,8 +19,8 @@ export const ArticleList = () => {
 
     const handleDeleteArticle = id => {
         deleteArticle(id)
-        .then(() => getAllArticles()
-        .then(setArticles));
+            .then(() => getAllArticles()
+                .then(setArticles));
     }
 
     useEffect(() => {
@@ -30,6 +30,9 @@ export const ArticleList = () => {
     return (
         <>
             <div className="container-cards">
+                <h2>News Articles</h2>
+                <article className="articles">
+                </article>
                 <section className="section-content">
                     <button type="button"
                         className="btn btn-primary"

@@ -14,7 +14,7 @@ export const NewArticleForm = () => {
 
     const [isLoading, setIsLoading] = useState(false)
 
-    const history = useHistory();
+    let history = useHistory();
 
     const handleControlledInputChange = (event) => {
 
@@ -37,7 +37,7 @@ export const NewArticleForm = () => {
             synopsis: article.synopsis,
             url: article.url,
             userId: parseInt(sessionStorage.getItem("nutshell_user")),
-            timestamp: Date.now()
+            timestamp: `${new Date().getMonth()+1} ${new Date().getDate()}, ${new Date().getFullYear()}`
         }
 
         addArticle(newArticleObj)
