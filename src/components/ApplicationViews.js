@@ -14,7 +14,8 @@ import { ArticleEditForm } from "./news/NewsArticleEditForm";
 import { NewArticleForm } from "./news/NewsArticleForm";
 import { MessageList } from "./messages/MessageList";
 import { EventList } from "./events/EventList";
-import { NewEventForm } from "./events/EventForm"
+import { NewEventForm } from "./events/EventForm";
+import { EventEditForm } from "./events/EditEventForm";
 
 
 export const ApplicationViews = () => {
@@ -63,6 +64,10 @@ export const ApplicationViews = () => {
 
       <Route exact path="/events/create">
         <NewEventForm />
+      </Route>
+
+      <Route exact path="/events/:eventId(\d+)/edit">
+        <EventEditForm />
       </Route>
     </>
   )
