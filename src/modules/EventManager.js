@@ -20,3 +20,9 @@ export const getEventById = (id) => {
         .then(res => res.json())
 }
 
+export const deleteEvent = (id) => {
+    return fetch(`${remoteURL}/events/${id}`, {
+        method: "DELETE"
+    }).then(result => result.json())
+}
+

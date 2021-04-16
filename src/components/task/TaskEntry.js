@@ -7,9 +7,11 @@ import { addTask } from '../../modules/TaskManager';
 export const TaskEntry = () => {
 
     const [task, setTask] = useState({
-        //defines initial state of 'task'
+        /*defines initial state of 'task'
+        isComplete is automatically set to false */
         name: "",
         dueDate: "",
+        isComplete: false
     });
 
     // ***** const [isLoading, setIsLoading] = useState(false); *****
@@ -35,7 +37,7 @@ export const TaskEntry = () => {
       
     }
 
-    const handleClickSaveTask = (event) => {
+    const handleClickSaveTask = () => {
         addTask(task)
             .then(() => history.push("/tasks/"))
              /*invoke addTask from TaskManager.js passing 'task' as argument, then 
@@ -59,8 +61,8 @@ export const TaskEntry = () => {
                 </div>
             </fieldset>
             
-            <Link to={`/tasks`} onClick={handleClickSaveTask}>
-            <button className="btn btn-primary" >
+            <Link to={`/tasks`} >
+            <button className="btn btn-primary" onClick={handleClickSaveTask} >
                 Save Task
             </button>
             </Link>
