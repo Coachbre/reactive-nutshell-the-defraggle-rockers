@@ -16,9 +16,11 @@ export const EventCard = ({ event, handleDeleteEvent }) => {
                         <Link to={`/weather`}>
                             <button type="button">Show Weather</button>
                         </Link>
+                        <button type="button" onClick={() => handleDeleteEvent(event.id)}>Remove Event</button>
                     </div>
                 </div>
             </div>
         </div>
+
     )
 }

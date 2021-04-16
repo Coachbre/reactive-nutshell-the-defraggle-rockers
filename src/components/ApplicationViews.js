@@ -52,7 +52,6 @@ export const ApplicationViews = () => {
       </Route>
 
       <Route exact path="/tasks">
-        <h1>To Do List</h1>
         <TaskList />
       </Route>
 
