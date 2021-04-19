@@ -19,7 +19,6 @@ export const FriendForm = () => {
 
     const [isLoading, setIsLoading] = useState(false);
 
-
     const handleSearch = (event) => {
         event.preventDefault()
         let userInput = event.target.value
@@ -28,7 +27,7 @@ export const FriendForm = () => {
             console.log(userInput)
 
                     let searchMatch = users.filter(user => {
-                        if (user.name.toLowerCase().includes(userInput)) {
+                        if (user.name.toLowerCase().includes(userInput.toLowerCase())) {
                             return true
                         }
                        
@@ -63,10 +62,9 @@ export const FriendForm = () => {
         <section>
             <h1>Add A Friend</h1>
             <form id="form">
-                <input placeholder="Search..."
+                <input placeholder="Search for friends..."
                 onChange={handleSearch}
                 />
-                <button >Search</button>
             </form>
             {searchResults.map(user =>
                 <UserCard
