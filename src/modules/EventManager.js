@@ -1,3 +1,5 @@
+import { settings } from "./Settings";
+
 const remoteURL = "http://localhost:8088"
 
 export const getAllEvents = () => {
@@ -34,5 +36,10 @@ export const deleteEvent = (id) => {
     return fetch(`${remoteURL}/events/${id}`, {
         method: "DELETE"
     }).then(result => result.json())
+}
+
+export const showWeather = () => {
+    return fetch(`api.openweathermap.org/data/2.5/forecast?id=${settings.cityCode}&appid=${settings.weatherKey}`)
+        .then(result => result.json())
 }
 
