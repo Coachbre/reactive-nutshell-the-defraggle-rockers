@@ -5,14 +5,12 @@ import { Register } from "./auth/Register";
 
 import { TaskEntry } from "./task/TaskEntry"
 import { TaskList } from "./task/TaskList";
-
-
-
 import { FriendList } from "./friend/FriendList"
 import { ArticleList } from "./news/NewsArticleList";
 import { ArticleEditForm } from "./news/NewsArticleEditForm";
 import { NewArticleForm } from "./news/NewsArticleForm";
 import { MessageList } from "./messages/MessageList";
+import { FriendForm } from "./friend/AddFriendForm"
 import { EventList } from "./events/EventList";
 import { NewEventForm } from "./events/EventForm";
 import { EventEditForm } from "./events/EditEventForm";
@@ -42,8 +40,12 @@ export const ApplicationViews = () => {
         <ArticleEditForm />
       </Route>
 
-      <Route path="/friends">
+      <Route exact path="/friends">
         <FriendList />
+      </Route>
+
+      <Route exact path="/friends/add">
+        <FriendForm />
       </Route>
 
       <Route path="/messages">
