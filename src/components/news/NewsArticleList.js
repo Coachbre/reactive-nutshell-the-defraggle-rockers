@@ -30,12 +30,11 @@ export const ArticleList = () => {
     return (
         <>
             <div className="container-cards">
-                <h2>News Articles</h2>
+                <h1>News Articles</h1>
                 <article className="articles">
                 </article>
                 <section className="section-content">
                     <button type="button"
-                        className="btn btn-primary"
                         onClick={() => { history.push("/create") }}>
                         Post News Article
                         </button>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import {useHistory} from "react-router-dom"
 import { FriendCard } from "./FriendCard";
 import { getAllFriends, deleteFriend } from "../../modules/FriendsManager"
+import "./AddFriendForm.css";
 
 export const FriendList = () => {
 
@@ -30,7 +31,7 @@ export const FriendList = () => {
         <>
             <h1>Friends</h1>
             <section className="friend-content">
-                <button type="button"
+                <button className="add-friend-button" type="button"
                     onClick={() => {history.push("/friends/add")}}>
                     add new friend
                     </button>

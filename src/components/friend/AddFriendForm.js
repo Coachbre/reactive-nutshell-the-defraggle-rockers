@@ -3,6 +3,7 @@ import { unstable_renderSubtreeIntoContainer } from "react-dom";
 import { useHistory } from "react-router-dom";
 import { getAllUsers, addFriend } from "../../modules/FriendsManager";
 import { UserCard } from "./UserCard"
+import "./Friend.css";
 
 export const FriendForm = () => {
 
