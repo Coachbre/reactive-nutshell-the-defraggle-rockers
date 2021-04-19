@@ -9,6 +9,12 @@ export const getAllTasks = () => {
     //waits for response, then parses response into json data
 }
 
+export const getTaskById = (id) => {
+    return fetch(`${remoteURL}/tasks/${id}`)
+    .then(result => result.json())
+    //gets single task by ID
+}
+
 export const hideTask = (task) => {
     task.isComplete = true
     return fetch(`${remoteURL}/tasks/${task.id}`, {
@@ -19,6 +25,18 @@ export const hideTask = (task) => {
         },
         body: JSON.stringify(task)
         //stringifies newTask thats passed in
+    }).then(result => result.json())
+}
+
+export const updateTask = (task) => {
+    return fetch(`${remoteURL}/tasks/${task.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+          // ^ security
+        },
+        body: JSON.stringify(task)
+        //stringifies task thats passed in
     }).then(result => result.json())
 }
 

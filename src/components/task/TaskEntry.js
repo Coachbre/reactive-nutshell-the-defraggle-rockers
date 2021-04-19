@@ -14,11 +14,12 @@ export const TaskEntry = () => {
         isComplete: false
     });
 
-    // ***** const [isLoading, setIsLoading] = useState(false); *****
+    const [isLoading, setIsLoading] = useState(false);
+    
 
     const history= useHistory();
 
-    const handleControlledInputChange = (event) => {
+    const handleInputChange = (event) => {
         const newTask = { ...task }
         //creates a copy before changing
         let selectedVal = event.target.value
@@ -50,14 +51,14 @@ export const TaskEntry = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Task:</label>
-                    <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Task" value={task.name} />
+                    <input type="text" id="name" onChange={handleInputChange} required autoFocus className="form-control" placeholder="Task" value={task.name} />
                 </div>
             </fieldset>
 
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="dueDate">Complete by:</label>
-                    <input type="date" id="dueDate" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Date" value={task.dueDate} />
+                    <input type="date" id="dueDate" onChange={handleInputChange} required autoFocus className="form-control" placeholder="Date" value={task.dueDate} />
                 </div>
             </fieldset>
             
