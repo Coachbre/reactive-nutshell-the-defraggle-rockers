@@ -10,7 +10,7 @@ export const FriendForm = () => {
 
     const loggedInUserId = sessionStorage.getItem("nutshell_user")
     const [search, setSearch] = useState([])
-    const [searchResults, setSearchResults] = useState("")
+    const [searchResults, setSearchResults] = useState([])
     const [users, setUsers] = useState([]);
     const [friend, setFriends] = useState({
         loggedInUserId: loggedInUserId,
@@ -21,32 +21,22 @@ export const FriendForm = () => {
 
 
     const handleSearch = (event) => {
+        event.preventDefault()
         let userInput = event.target.value
-        setSearch(userInput.toLowerCase())
-        // getSearchResults(userInput)
-    }
 
-    //take in event
-    //change getsearchresults on Click for the search button
-    //save input to a variable
-    //filter through all users and compare to variable
-    //return match
-
-    const getSearchResults = (userInput) => { 
-        if (userInput.length !== 0) {
+        if (userInput.length > 0) {
             console.log(userInput)
-            getAllUsers()
-                .then(response => {
-                    let searchMatch = response.filter(user => {
+
+                    let searchMatch = users.filter(user => {
                         if (user.name.toLowerCase().includes(userInput)) {
                             return true
                         }
-                        setSearchResults(searchMatch)
+                       
                     })
-                    return searchMatch;
-                })
+                    setSearchResults(searchMatch)
         }
     }
+
 
     const getUsers = () => {
         return getAllUsers().then(usersFromAPI => {
@@ -68,15 +58,17 @@ export const FriendForm = () => {
         getUsers();
     }, []);
 
+    
     return (
         <section>
             <h1>Add A Friend</h1>
             <form id="form">
                 <input placeholder="Search..."
+                onChange={handleSearch}
                 />
-                <button onClick={getSearchResults}>Search</button>
+                <button >Search</button>
             </form>
-            {users.map(user =>
+            {searchResults.map(user =>
                 <UserCard
                     key={user.id}
                     user={user}
