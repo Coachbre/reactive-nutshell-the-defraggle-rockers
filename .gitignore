@@ -24,5 +24,4 @@ yarn-error.log*
 
 .eslintcache
 database.json
-
 Settings.js

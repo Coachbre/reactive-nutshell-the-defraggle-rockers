@@ -1,7 +1,11 @@
-import { useState, useEffect } from 'react';
+//author: Bre Coach
+// task entry form and submission button to create a new task
+
+import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from "react-router-dom";
 import { addTask } from '../../modules/TaskManager';
+import "./Task.css"
 
 
 export const TaskEntry = () => {
@@ -48,25 +52,33 @@ export const TaskEntry = () => {
     return (
         <form className="taskForm">
             <h2 className="taskForm_title"> Whats Up Next?</h2>
+            <div className="form-group">
             <fieldset>
-                <div className="form-group">
+                
                     <label htmlFor="name">Task:</label>
                     <input type="text" id="name" onChange={handleInputChange} required autoFocus className="form-control" placeholder="Task" value={task.name} />
-                </div>
+             
             </fieldset>
 
             <fieldset>
-                <div className="form-group">
+               
                     <label htmlFor="dueDate">Complete by:</label>
                     <input type="date" id="dueDate" onChange={handleInputChange} required autoFocus className="form-control" placeholder="Date" value={task.dueDate} />
-                </div>
+             
             </fieldset>
+           
+            <div>
+            <Link to={`/tasks`} >
+            <button className="btn-primary">Cancel</button>
+            </Link>
+            </div>
             
             <Link to={`/tasks`} >
-            <button className="btn btn-primary" onClick={handleClickSaveTask} >
+            <button className="btn-primary" onClick={handleClickSaveTask} >
                 Save Task
             </button>
             </Link>
+            </div>
             
         </form>
     )
