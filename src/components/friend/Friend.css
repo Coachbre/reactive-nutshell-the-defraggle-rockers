@@ -4,3 +4,7 @@ section {
     padding: 1em;
     border: 1px solid black;
 }
+
+img {
+    width: 60px
+}

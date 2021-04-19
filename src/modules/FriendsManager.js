@@ -10,8 +10,6 @@ export const getAllUsers = () => {
     .then(res => res.json());
 }
 
-
-
 export const deleteFriend = (id) => {
     return fetch(`${remoteURL}/friends/${id}`, {
         method: "DELETE"
