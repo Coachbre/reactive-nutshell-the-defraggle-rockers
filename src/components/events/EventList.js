@@ -3,7 +3,6 @@ import { useHistory } from "react-router";
 import { EventCard } from "./EventCard";
 import { getAllEvents, deleteEvent } from "../../modules/EventManager";
 import "./EventList.css";
-import { getAllArticles } from "../../modules/NewsArticleManager";
 
 export const EventList = () => {
 
