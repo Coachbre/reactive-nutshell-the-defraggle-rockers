@@ -3,7 +3,8 @@ import { Route, Redirect } from "react-router-dom";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
 
-import { TaskEntry } from "./task/TaskEntry"
+import { TaskEntry } from "./task/TaskEntry";
+import { TaskEdit } from "./task/TaskEdit";
 import { TaskList } from "./task/TaskList";
 import { FriendList } from "./friend/FriendList"
 import { ArticleList } from "./news/NewsArticleList";
@@ -58,6 +59,11 @@ export const ApplicationViews = () => {
 
       <Route exact path="/tasks/entry">
         <TaskEntry />
+      </Route>
+
+      <Route exact path="/tasks/edit/:taskId(\d+)">
+        {/*looks for matching url (from task card) and digit, and sets as the 'taskId' */}
+        <TaskEdit />
       </Route>
 
       <Route exact path="/events">
