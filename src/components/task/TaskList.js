@@ -1,7 +1,11 @@
+//author: Bre Coach
+// renders list of tasks within array with false as the isComplete value
+
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router";
 import { TaskCard } from "./TaskCard";
 import { getAllTasks, deleteTask, hideTask } from '../../modules/TaskManager';
+import "./Task.css"
 
 export const TaskList = () => {
 
@@ -60,28 +64,25 @@ export const TaskList = () => {
         //runs the 1st time with empty array, then ^^ useEffect() runs after
         <div className="container-cards">
             <h1>To Do List</h1>
-            <section className="section-content">
                 <button type="button"
-                    className="btn btn-primary"
+                    className="btn-primary"
                     onClick={() => { history.push("/tasks/entry") }}>
                     Create New Task
                         </button>
-
-            </section>
             <div>
             {tasks.map(taskObj => {
                 //iterates over the array
                 if (taskObj.isComplete === false) {
                     // Only return a secific task card if isComplete = false (checkbox not selected)
                  return (
+                     <ul>
                   <TaskCard
                         key={taskObj.id}
                         // unique key needed by react (will work without, but is good convention)
                         task={taskObj}
                         // taskObj from array is set equal to 'task' (a prop thats passed into TaskCard)
                         handleDelete={handleDelete}
-                        handleHideTask={handleHideTask}
-                        /*handleEditTask={handleEditTask}*/ />
+                        handleHideTask={handleHideTask} /></ul>
                  )
                 }
         })}

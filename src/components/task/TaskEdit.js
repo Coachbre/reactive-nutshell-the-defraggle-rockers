@@ -1,7 +1,11 @@
+//author: Bre Coach
+//handles task edit form and related events
+
 import { useState, useEffect } from 'react';
 import { useHistory, useParams} from 'react-router';
 import { Link } from "react-router-dom";
 import { updateTask, getTaskById } from '../../modules/TaskManager';
+import "./Task.css"
 
 export const TaskEdit = () => {
 
@@ -85,12 +89,12 @@ export const TaskEdit = () => {
             
             <div>
             <Link to={`/tasks`} >
-            <button>Back</button>
+            <button className="btn-primary">Cancel</button>
             </Link>
             </div>
 
     
-            <button type="button" disabled={isLoading} className="btn btn-primary" onClick={updateExistingTask} >
+            <button type="button" disabled={isLoading} className="btn-primary" onClick={updateExistingTask} >
                 Update
             </button>
             
