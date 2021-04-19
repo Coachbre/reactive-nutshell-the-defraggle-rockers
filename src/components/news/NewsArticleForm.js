@@ -47,26 +47,25 @@ export const NewArticleForm = () => {
     return (
         <form className="newsArticleForm">
             <h2 className="newsArticleForm_title">New Article</h2>
-            <fieldset>
+            
                 <div className="form-group">
                     <label htmlFor="name">News Article Name:</label>
                     <input type="text" id="newsTitle" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Article name" value={article.newsTitle} />
                 </div>
-            </fieldset>
-            <fieldset>
+        
                 <div className="form-group">
                     <label htmlFor="name">News Article Synopsis:</label>
                     <input type="text" id="synopsis" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Article synopsis" value={article.synopsis} />
                 </div>
-            </fieldset>
-            <fieldset>
+
+
                 <div className="form-group">
                     <label htmlFor="name">News Article URL:</label>
                     <input type="text" id="url" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Article url" value={article.url} />
                 </div>
-            </fieldset>
+
             <Link to={`/`}>
-                <button>Back</button>
+                <button className="save-article-btn">Back</button>
             </Link>
             <button className="save-article-btn"
                 onClick={handleClickSaveArticle}>
