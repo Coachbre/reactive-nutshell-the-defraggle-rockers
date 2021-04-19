@@ -68,7 +68,7 @@ export const NewArticleForm = () => {
             <Link to={`/`}>
                 <button>Back</button>
             </Link>
-            <button className="btn btn-primary"
+            <button className="save-article-btn"
                 onClick={handleClickSaveArticle}>
                 Save Article
             </button>
