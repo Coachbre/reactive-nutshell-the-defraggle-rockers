@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router";
 import { TaskCard } from "./TaskCard";
-import { getAllTasks, deleteTask, hideTask, editTask } from '../../modules/TaskManager';
+import { getAllTasks, deleteTask, hideTask } from '../../modules/TaskManager';
 
 export const TaskList = () => {
+
     //declaring state variable (as an empty array)
     const [tasks, setTasks] = useState([]);
     /*empty array in useState() is the INITIAL value of tasks, and
@@ -13,6 +14,7 @@ export const TaskList = () => {
         return getAllTasks()
             //^ getAllTasks() fetches json info
             .then((tasksFromAPI /*taco*/) => {
+        
                 setTasks(tasksFromAPI /*taco*/)
 
                 /* waits for data then 'setTasks' sets the 'tasks'
@@ -31,12 +33,6 @@ export const TaskList = () => {
                     //setTasks is setting 'filteredTasks' equal to 'tasks' then setting as current state
                 })
             )
-    };
-
-    const handleEditTask = task => {
-        editTask(task)
-            .then(() => getAllTasks()
-                .then(setTasks));
     };
 
 
@@ -72,6 +68,7 @@ export const TaskList = () => {
                         </button>
 
             </section>
+            <div>
             {tasks.map(taskObj => {
                 //iterates over the array
                 if (taskObj.isComplete === false) {
@@ -84,10 +81,11 @@ export const TaskList = () => {
                         // taskObj from array is set equal to 'task' (a prop thats passed into TaskCard)
                         handleDelete={handleDelete}
                         handleHideTask={handleHideTask}
-                        handleEditTask={handleEditTask} />
+                        /*handleEditTask={handleEditTask}*/ />
                  )
                 }
         })}
+        </div>
         </div>
     );
 };

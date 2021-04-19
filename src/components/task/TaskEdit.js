@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory, useParams} from 'react-router';
 import { Link } from "react-router-dom";
-import { editTask } from '../../modules/TaskManager';
+import { updateTask, getTaskById } from '../../modules/TaskManager';
 
-export const TaskEdit = (id) => {
+export const TaskEdit = () => {
 
     const [task, setTask] = useState({
-        name: task.id,
-        dueDate: task.dueDate,
+        name: "",
+        dueDate: "",
         isComplete: false
         // ^ initial value of 'task'
     });
@@ -27,10 +27,33 @@ export const TaskEdit = (id) => {
         //sets current value of 'task' equal to 'stateToChange'
     };
 
-    const handleClickEditTask = () => {
-        editTask(task)
-        .then(() => history.push("/tasks/"))
-    }
+    const updateExistingTask = event => {
+       event.preventDefault() /* prevents browser refresh */
+       setIsLoading(true); /* prevents user submission*/
+
+       const editedTask = {
+           id: taskId,
+           name: task.name,
+           dueDate: task.dueDate
+           //watches for updates within specific key-value pairs
+       }
+
+       updateTask(editedTask)
+       .then(() => history.push('/tasks'))
+       // pushes update to card and reloads main page
+    };
+
+    useEffect(() => {
+        getTaskById(taskId)
+        // fetch individual task (object) by ID
+        .then(res => {
+            setTask(res);
+            // takes response nd sets as current value of 'task'
+            setIsLoading(false);
+            // allows user submission
+        });
+    }, [] /*passes in updated array of task*/);
+
 
     return (
         <form className="taskEdit">
@@ -38,22 +61,27 @@ export const TaskEdit = (id) => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Task:</label>
-                    <input type="text" id="name" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Task" value={task.name} />
+                    <input type="text" id="name" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Task" value={task.name} />
                 </div>
             </fieldset>
 
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="dueDate">Complete by:</label>
-                    <input type="date" id="dueDate" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Date" value={task.dueDate} />
+                    <input type="date" id="dueDate" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Date" value={task.dueDate} />
                 </div>
             </fieldset>
             
+            <div>
             <Link to={`/tasks`} >
-            <button className="btn btn-primary" onClick={handleClickEditTask} >
+            <button>Back</button>
+            </Link>
+            </div>
+
+
+            <button type="button" disabled={isLoading} className="btn btn-primary" onClick={updateExistingTask} >
                 Update
             </button>
-            </Link>
             
         </form>
     )

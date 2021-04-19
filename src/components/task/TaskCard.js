@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "./Task.css"
 
 
@@ -14,11 +15,13 @@ export const TaskCard = ({task, handleDelete, handleHideTask, handleEditTask}) =
 
         <div>   
             <label>Complete</label>
-            <input type="checkbox" id="checkbox" onChange={() => handleHideTask(task)}> </input> 
+            <input type="checkbox" id="checkbox" onChange={() => handleHideTask(task)}/>
             <br></br>
         </div>
 
-        <button type="button" onClick={() => handleEditTask(task.id)}>Edit Task</button>
+        <Link to={`/tasks/edit`}>
+        <button type="button">Edit Task</button>
+        </Link>
 
         <button type="button" onClick={() => handleDelete(task.id)}>Delete Task</button>
     </section> //why is onClick formatted like this? ^
