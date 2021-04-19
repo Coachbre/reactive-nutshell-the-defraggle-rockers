@@ -4,6 +4,7 @@ import { TaskCard } from "./TaskCard";
 import { getAllTasks, deleteTask, hideTask } from '../../modules/TaskManager';
 
 export const TaskList = () => {
+
     //declaring state variable (as an empty array)
     const [tasks, setTasks] = useState([]);
     /*empty array in useState() is the INITIAL value of tasks, and
@@ -12,8 +13,10 @@ export const TaskList = () => {
         //^ getTasks() ultimately returns task array from json
         return getAllTasks()
             //^ getAllTasks() fetches json info
-            .then(tasksFromAPI /*taco*/ => {
+            .then((tasksFromAPI /*taco*/) => {
+        
                 setTasks(tasksFromAPI /*taco*/)
+
                 /* waits for data then 'setTasks' sets the 'tasks'
                 variable equal to API data */
             });
@@ -65,9 +68,11 @@ export const TaskList = () => {
                         </button>
 
             </section>
+            <div>
             {tasks.map(taskObj => {
                 //iterates over the array
                 if (taskObj.isComplete === false) {
+                    // Only return a secific task card if isComplete = false (checkbox not selected)
                  return (
                   <TaskCard
                         key={taskObj.id}
@@ -75,10 +80,12 @@ export const TaskList = () => {
                         task={taskObj}
                         // taskObj from array is set equal to 'task' (a prop thats passed into TaskCard)
                         handleDelete={handleDelete}
-                        handleHideTask={handleHideTask} />
+                        handleHideTask={handleHideTask}
+                        /*handleEditTask={handleEditTask}*/ />
                  )
                 }
         })}
+        </div>
         </div>
     );
 };

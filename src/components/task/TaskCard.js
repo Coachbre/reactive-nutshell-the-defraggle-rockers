@@ -1,25 +1,30 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "./Task.css"
 
 
 
 
-export const TaskCard = ({task, handleDelete, handleHideTask}) => (
-    //'task' is prop thats equal to each taskObj in array- being passed in from TaskList() return
-    //will need to add isComplete boolean 
+export const TaskCard = ({task, handleDelete, handleHideTask, handleEditTask}) => (
+    //'task, handleDelete, handleHideTask, handleEditTask' are props being passed in from TaskList() return
+
     <section className="task">
-        <h2 className="task_name">Task: {task.name}</h2>
+        <h2 className="task_name">{task.name}</h2>
  
-        <div className="task_dueDate">Complete by: {task.dueDate}</div>
+        <h3 className="task_dueDate">Complete by: {task.dueDate}</h3>
 
         <div>   
-            <label></label><input type="checkbox" id="checkbox" onChange={() => handleHideTask(task)}> 
-                        
-            </input> 
+            <label>Complete</label>
+            <input type="checkbox" id="checkbox" onChange={() => handleHideTask(task)}/>
             <br></br>
         </div>
 
-        <button type="button" onClick={() => handleDelete(task.id)}>Remove Task</button>
+        <Link to={`/tasks/edit/${task.id}`}>
+            {/* sets the URL to match the specific task id # */}
+        <button type="button">Edit Task</button>
+        </Link>
+
+        <button type="button" onClick={() => handleDelete(task.id)}>Delete Task</button>
     </section> //why is onClick formatted like this? ^
 )
 
