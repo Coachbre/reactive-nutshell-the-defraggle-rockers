@@ -2,17 +2,16 @@ import React, { useState, useEffect } from "react";
 import {useHistory} from "react-router-dom"
 import { FriendCard } from "./FriendCard";
 import { getAllFriends, deleteFriend } from "../../modules/FriendsManager"
-// may need deleteFriend getAllFriends getFriendById from the friends data manager
 
 export const FriendList = () => {
 
-    const [friends, setFriends] = useState([]);
-
     let history = useHistory()
+
+    const [friends, setFriends] = useState([]);
 
     const getFriends = () => {
         const loggedInUserId = sessionStorage.getItem("nutshell_user")
-        
+
         return getAllFriends(loggedInUserId).then(friendsFromAPI => {
             setFriends(friendsFromAPI)
         });
@@ -30,13 +29,16 @@ export const FriendList = () => {
     return (
         <>
             <h1>Friends</h1>
-            <section className="friend-list">
-                <input type="text" placeholder="Search.."></input>
+            <section className="friend-content">
+                <button type="button"
+                    onClick={() => {history.push("/friends/add")}}>
+                    add new friend
+                    </button>
                 {friends.map(friend =>
                     <FriendCard
                         key={friend.id}
                         friend={friend}
-                        handleDeleteFriend={handleDeleteFriend}  />
+                        handleDeleteFriend={handleDeleteFriend} />
                 )}
             </section>
         </>
