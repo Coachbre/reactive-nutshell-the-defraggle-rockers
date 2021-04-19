@@ -39,7 +39,8 @@ export const deleteEvent = (id) => {
 }
 
 export const showWeather = () => {
-    return fetch(`api.openweathermap.org/data/2.5/forecast?id=${settings.cityCode}&appid=${settings.weatherKey}`)
-        .then(result => result.json())
+    return fetch(`https://api.openweathermap.org/data/2.5/forecast?id=${settings.cityCode}&units=imperial&appid=${settings.weatherKey}`, {
+        method: "GET",
+    }).then(result => result.json())
 }
 
