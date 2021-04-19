@@ -37,7 +37,7 @@ export const Register = () => {
                         },
                         body: JSON.stringify({
                             email: registerUser.email,
-                            name: `${registerUser.firstName}${registerUser.lastName}`
+                            name: `${registerUser.firstName}_${registerUser.lastName}`
                         })
                     })
                         .then(res => res.json())
