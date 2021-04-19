@@ -43,7 +43,6 @@ export const MessageForm = ({getMessages}) => {
     }
 
 
-    debugger
     if(newMessage.message.startsWith('@')){
       let regularExpression = /(?<=\@)(.*?)(?=\s)/;
 
