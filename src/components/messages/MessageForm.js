@@ -23,6 +23,16 @@ export const MessageForm = ({getMessages}) => {
 		setMessage(newMessage)
 	}
 
+  const getUsers = () => {
+    return getAllUsers().then(usersFromAPI => {
+        setUsers(usersFromAPI)
+    });
+  };
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+  
   const handleClickSaveMessage = (event) => {
 		event.preventDefault() //Prevents the browser from submitting the form
     let newMessage = {
@@ -32,25 +42,15 @@ export const MessageForm = ({getMessages}) => {
       timestamp: `${new Date().getMonth()+1} ${new Date().getDate()}, ${new Date().getFullYear()}`
     }
 
-    const getUsers = () => {
-      return getAllUsers().then(usersFromAPI => {
-          setUsers(usersFromAPI)
-      });
-    };
 
-    useEffect(() => {
-      getUsers();
-    }, []);
-
+    debugger
     if(newMessage.message.startsWith('@')){
       let regularExpression = /(?<=\@)(.*?)(?=\s)/;
-      let selectedVal = event.target.value
 
-      let parsedName = selectedVal.match(regularExpression);
-
+      let parsedName = message.message.match(regularExpression);
       
       let privateUser = users.find(user => {
-        if(user.name.toLowerCase() === parsedName.toLowerCase()) {
+        if(user.name.toLowerCase() === parsedName[0].toLowerCase()) {
           return true
         }
       })
@@ -60,7 +60,7 @@ export const MessageForm = ({getMessages}) => {
 
     console.log(newMessage)
 		addMessage(newMessage)
-			.then(getMessages())
+			.then(getMessages)
 	}
 
 	return (

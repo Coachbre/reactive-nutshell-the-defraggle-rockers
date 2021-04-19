@@ -17,7 +17,6 @@ export const MessageList = () => {
 
 
   useEffect(() => {
-  //load Employee data and setState
     getMessages();
   }, []);
   
