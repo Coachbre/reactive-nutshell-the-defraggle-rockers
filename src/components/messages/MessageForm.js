@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { getAllMessages, addMessage } from '../../modules/MessagesManager';
+import { addMessage } from '../../modules/MessagesManager';
 import { useHistory } from 'react-router-dom';
 import './Messages.css';
+import { getAllUsers } from '../../modules/FriendsManager';
 
 export const MessageForm = ({getMessages}) => {
   const [message, setMessage] = useState({
     message: ''
   });
+  const [users, setUsers] = useState([]);
   const history = useHistory();
   
 
@@ -21,17 +23,43 @@ export const MessageForm = ({getMessages}) => {
 		setMessage(newMessage)
 	}
 
+  const getUsers = () => {
+    return getAllUsers().then(usersFromAPI => {
+        setUsers(usersFromAPI)
+    });
+  };
+
+  useEffect(() => {
+    getUsers();
+  }, []);
+  
   const handleClickSaveMessage = (event) => {
 		event.preventDefault() //Prevents the browser from submitting the form
-    const newMessage = {
+    let newMessage = {
       sendingUserId: parseInt(sessionStorage.getItem("nutshell_user")),
       receivingUserId: 0,
       message: message.message,
       timestamp: `${new Date().getMonth()+1} ${new Date().getDate()}, ${new Date().getFullYear()}`
     }
+
+
+    if(newMessage.message.startsWith('@')){
+      let regularExpression = /(?<=\@)(.*?)(?=\s)/;
+
+      let parsedName = message.message.match(regularExpression);
+      
+      let privateUser = users.find(user => {
+        if(user.name.toLowerCase() === parsedName[0].toLowerCase()) {
+          return true
+        }
+      })
+
+      newMessage.receivingUserId = privateUser.id
+    }
+
     console.log(newMessage)
 		addMessage(newMessage)
-			.then(getMessages())
+			.then(getMessages)
 	}
 
 	return (
