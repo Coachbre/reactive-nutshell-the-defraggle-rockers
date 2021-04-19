@@ -8,13 +8,14 @@ export const TaskEdit = () => {
     const [task, setTask] = useState({
         name: "",
         dueDate: "",
-        isComplete: false
+  
         // ^ initial value of 'task'
     });
     const [isLoading, setIsLoading] = useState(false);
     //prevents user from submitting multiple times while data is being updated
      
     const {taskId} = useParams();
+    // pulls the digit, or task.id, thats been set as 'taskId' from the route
     const history = useHistory();
 
     const handleFieldChange = (event) => {
@@ -34,15 +35,17 @@ export const TaskEdit = () => {
        const editedTask = {
            id: taskId,
            name: task.name,
-           dueDate: task.dueDate
+           dueDate: task.dueDate,
+           isComplete: task.isComplete
            //watches for updates within specific key-value pairs
        }
 
        updateTask(editedTask)
+  
        .then(() => history.push('/tasks'))
+       
        // pushes update to card and reloads main page
     };
-
     useEffect(() => {
         getTaskById(taskId)
         // fetch individual task (object) by ID
@@ -59,16 +62,24 @@ export const TaskEdit = () => {
         <form className="taskEdit">
             <h2 className="taskForm_title">Change Your Task</h2>
             <fieldset>
-                <div className="form-group">
+                <div>
                     <label htmlFor="name">Task:</label>
-                    <input type="text" id="name" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Task" value={task.name} />
+                    <input type="text" 
+                    id="name" 
+                    onChange={handleFieldChange} 
+                    className="form-control" 
+                    value={task.name} />
                 </div>
             </fieldset>
 
             <fieldset>
-                <div className="form-group">
+                <div>
                     <label htmlFor="dueDate">Complete by:</label>
-                    <input type="date" id="dueDate" onChange={handleFieldChange} required autoFocus className="form-control" placeholder="Date" value={task.dueDate} />
+                    <input type="date" 
+                    id="dueDate" 
+                    onChange={handleFieldChange}
+                    className="form-control"
+                    value={task.dueDate} />
                 </div>
             </fieldset>
             
@@ -78,10 +89,11 @@ export const TaskEdit = () => {
             </Link>
             </div>
 
-
+    
             <button type="button" disabled={isLoading} className="btn btn-primary" onClick={updateExistingTask} >
                 Update
             </button>
+            
             
         </form>
     )

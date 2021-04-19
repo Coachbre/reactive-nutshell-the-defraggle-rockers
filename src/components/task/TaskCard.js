@@ -19,7 +19,8 @@ export const TaskCard = ({task, handleDelete, handleHideTask, handleEditTask}) =
             <br></br>
         </div>
 
-        <Link to={`/tasks/edit`}>
+        <Link to={`/tasks/edit/${task.id}`}>
+            {/* sets the URL to match the specific task id # */}
         <button type="button">Edit Task</button>
         </Link>
 

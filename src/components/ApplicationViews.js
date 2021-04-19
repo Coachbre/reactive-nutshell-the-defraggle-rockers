@@ -59,7 +59,8 @@ export const ApplicationViews = () => {
         <TaskEntry />
       </Route>
 
-      <Route exact path="/tasks/edit">
+      <Route exact path="/tasks/edit/:taskId(\d+)">
+        {/*looks for matching url (from task card) and digit, and sets as the 'taskId' */}
         <TaskEdit />
       </Route>
 
