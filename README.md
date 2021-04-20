@@ -20,6 +20,12 @@ git clone this repository or download zip
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
 
+## Wireframe
+![nutshellWireframe](https://user-images.githubusercontent.com/62270575/115460423-3f3e3400-a1f6-11eb-9876-86a40d72551f.PNG)
+
+## ERD
+![nutshellERD](https://user-images.githubusercontent.com/62270575/115460483-53823100-a1f6-11eb-8ed3-f0b7ca54c1a3.PNG)
+
 
 
 # Reactive Nutshell: The Information Dashboard
