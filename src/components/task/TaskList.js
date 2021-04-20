@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router";
 import { TaskCard } from "./TaskCard";
 import { getAllTasks, deleteTask, hideTask } from '../../modules/TaskManager';
-import "./TaskList.css"
+import "./TaskCard.css"
 
 export const TaskList = () => {
 
@@ -65,7 +65,7 @@ export const TaskList = () => {
         <div className="container-cards">
             <h1 className="task-title">To Do List</h1>
                 <button type="button"
-                    className="creat-task"
+                    className="creat-task-btn"
                     onClick={() => { history.push("/tasks/entry") }}>
                     Create New Task
                         </button>

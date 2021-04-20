@@ -12,5 +12,7 @@ form {
     margin: 2em;
 }
 
-.save-article-btn {
-    margin: 10px;}
+.save-event-btn, .back-to-events-btn {
+   margin: .5em;
+   width: 40%;
+ }

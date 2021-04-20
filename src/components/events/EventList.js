@@ -30,12 +30,12 @@ export const EventList = () => {
     return (
         <>
             <div className="container-cards">
-                <h2>Upcoming Events</h2>
+                <h1>Upcoming Events</h1>
                 <article className="events">
                 </article>
                 <section className="section-content">
                     <button type="button"
-                        className="btn btn-primary"
+                        className="add-new-event"
                         onClick={() => { history.push("/events/create") }}>
                         Add New Event
                     </button>

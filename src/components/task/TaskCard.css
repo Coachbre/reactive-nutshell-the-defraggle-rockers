@@ -32,8 +32,9 @@
     display: inline-block;
     font-size: 14px;
     padding: .5em;
-    margin: .2em;
-    width: 30%;
+    margin: 1em;
+    margin-top: .5em;
+    width: 40%;
 } 
   
 .card button:hover {
@@ -46,4 +47,13 @@ label {
 
 #checkbox {
     margin: .5em;
+}
+
+.creat-task-btn {
+    width: 200px;
+    margin: 1em;
+}
+
+.task-title {
+    padding: 1em;
 }

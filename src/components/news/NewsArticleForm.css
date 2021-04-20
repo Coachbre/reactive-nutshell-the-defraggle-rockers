@@ -13,5 +13,6 @@ form {
 }
 
 .save-article-btn {
-    margin-right: 1 em;
+    width: 40%;
+    margin: .5em;
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { ArticleCard } from "./NewsArticleCard";
 import { getAllArticles, deleteArticle } from "../../modules/NewsArticleManager";
-import './NewsArticleList.css';
+import './NewsArticleCard.css';
 
 export const ArticleList = () => {
 
@@ -34,7 +34,7 @@ export const ArticleList = () => {
                 <article className="articles">
                 </article>
                 <section className="section-content">
-                    <button type="button"
+                    <button className="add-article-btn" type="button"
                         onClick={() => { history.push("/create") }}>
                         Post News Article
                         </button>
