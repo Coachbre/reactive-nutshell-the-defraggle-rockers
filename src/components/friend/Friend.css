@@ -1,17 +1,10 @@
-section {
-    flex-basis: 28%;
-    margin: 1em;
-    padding: 1em;
-}
-
 img {
-    width: 60px
+    width: 80px;
 }
 
 .friend-card, .user-card {
-    display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; 
+    flex-direction: column;
     flex-basis: 28%;
     margin: 1em;
     padding: 1em;    
@@ -21,11 +14,21 @@ img {
     margin-bottom: 1em; 
     background: aliceblue;
     padding: .5em;
+    width: 40%;
+    vertical-align: middle;
 }
 
-h1 {
+.friend-title {
+    padding: 1em;
+}
+
+.addfriend-title {
     text-align: center;
-    margin-top: 1em;
+    padding: 1em;
+}
+
+h4 {
+    text-align: center;
 }
   
 .add-friend-button {
@@ -35,11 +38,9 @@ h1 {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
     padding: .5em;
-    margin: 2em;
-    width: 30%;
-    height: 2em,
+    width: 100%;
+    margin: 1em;
 }
   
 button:hover {

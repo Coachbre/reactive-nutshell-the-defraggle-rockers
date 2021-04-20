@@ -30,7 +30,7 @@ export const ArticleList = () => {
     return (
         <>
             <div className="container-cards">
-                <h1>News Articles</h1>
+                <h1 className="news-article-title">News Articles</h1>
                 <article className="articles">
                 </article>
                 <section className="section-content">

@@ -74,7 +74,7 @@ export const MessageForm = ({getMessages}) => {
           value={message.message} />
     		</div>
     	</fieldset>
-    	<button className="btn btn-primary"
+    	<button className="save-message"
     		onClick={handleClickSaveMessage}>
     		Save message
       </button>

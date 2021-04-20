@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router";
 import { TaskCard } from "./TaskCard";
 import { getAllTasks, deleteTask, hideTask } from '../../modules/TaskManager';
-import "./Task.css"
+import "./TaskList.css"
 
 export const TaskList = () => {
 
@@ -63,9 +63,9 @@ export const TaskList = () => {
 
         //runs the 1st time with empty array, then ^^ useEffect() runs after
         <div className="container-cards">
-            <h1>To Do List</h1>
+            <h1 className="task-title">To Do List</h1>
                 <button type="button"
-                    className="btn-primary"
+                    className="creat-task"
                     onClick={() => { history.push("/tasks/entry") }}>
                     Create New Task
                         </button>

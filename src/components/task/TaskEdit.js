@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { useHistory, useParams} from 'react-router';
 import { Link } from "react-router-dom";
 import { updateTask, getTaskById } from '../../modules/TaskManager';
-import "./Task.css"
+import "./TaskCard.css"
 
 export const TaskEdit = () => {
 
@@ -89,12 +89,12 @@ export const TaskEdit = () => {
             
             <div>
             <Link to={`/tasks`} >
-            <button className="btn-primary">Cancel</button>
+            <button className="cancel-task">Cancel</button>
             </Link>
             </div>
 
     
-            <button type="button" disabled={isLoading} className="btn-primary" onClick={updateExistingTask} >
+            <button type="button" disabled={isLoading} className="task-update" onClick={updateExistingTask} >
                 Update
             </button>
             

@@ -22,6 +22,7 @@ export const MessageList = () => {
   
 	return (
     <section>
+      <h1 className="message-title">Message Board</h1>
       <div className='allMessages'>
         <div className='messageList'>
           {messages.map(singleMessage => 

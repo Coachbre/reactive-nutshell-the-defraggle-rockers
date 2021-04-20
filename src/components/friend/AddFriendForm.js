@@ -61,7 +61,7 @@ export const FriendForm = () => {
     
     return (
         <section>
-            <h1>Add A Friend</h1>
+            <h1 className="addfriend-title">Add A Friend</h1>
             <form id="form">
                 <input placeholder="Search for friends..."
                 onChange={handleSearch}

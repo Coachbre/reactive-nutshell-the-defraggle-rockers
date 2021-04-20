@@ -27,7 +27,10 @@ img {
 h4 {
     color : black
 }
-  
+
+.friend-content {
+    flex-direction: row;
+}
   
 button {
     background-color: cornflowerblue;
@@ -38,8 +41,13 @@ button {
     display: inline-block;
     font-size: 14px;
     padding: .5em;
+    border-radius: 1em;
 }
   
 button:hover {
     background-color: darkblue;
 } 
+
+.addfriend-title {
+    padding: 1em;
+}
