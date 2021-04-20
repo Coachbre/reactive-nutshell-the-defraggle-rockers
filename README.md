@@ -1,5 +1,3 @@
-![Nutshell Project](https://user-images.githubusercontent.com/62270575/115459713-5e889180-a1f5-11eb-9897-0b248080d7c9.PNG)
-
 # Nutshell Group Project
 While attending Nashville Software School, Cohort 47- We used React to create a single page app that allows users to post news articles and events, create a task list, and add 'friends' that can both send a receive private messages.  
 My main contributions were writing the modules that handled all CRUD functionality for the 'task' related sections.
@@ -19,6 +17,9 @@ git clone this repository or download zip
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## Task List Home Page
+![Nutshell Project](https://user-images.githubusercontent.com/62270575/115459713-5e889180-a1f5-11eb-9897-0b248080d7c9.PNG)
 
 ## Wireframe
 ![nutshellWireframe](https://user-images.githubusercontent.com/62270575/115460423-3f3e3400-a1f6-11eb-9876-86a40d72551f.PNG)
