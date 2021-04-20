@@ -1,4 +1,4 @@
-![Nutshell Project](nutshell.snip.png)
+![Nutshell Project](https://user-images.githubusercontent.com/62270575/115459713-5e889180-a1f5-11eb-9897-0b248080d7c9.PNG)
 
 # Nutshell Group Project
 While attending Nashville Software School, Cohort 47- We used React to create a single page app that allows users to post news articles and events, create a task list, and add 'friends' that can both send a receive private messages.  
