@@ -1,5 +1,5 @@
 # Nutshell Group Project
-While attending Nashville Software School, Cohort 47- We used React to create a single page app that allows users to post news articles and events, create a task list, and add 'friends' that can both send a receive private messages.  
+For my last front-end group project at Nashville Software School- We used React to create a single page app that allows users to post news articles and events, create a task list, and add 'friends' that can both send a receive private messages.  
 My main contributions were writing the modules that handled all CRUD functionality for the 'task' related sections.
 
 ## Installation
