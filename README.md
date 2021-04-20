@@ -14,7 +14,7 @@ git clone this repository or download zip
 
 ## Contributing
 [Traye Johnson](https://github.com/archeni)  
-[Brandon Hill]https://github.com/brandonjon26)  
+[Brandon Hill](https://github.com/brandonjon26)  
 [Meg McGregor](https://github.com/MegMcGregor)  
 
 ## License
