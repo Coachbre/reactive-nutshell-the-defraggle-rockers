@@ -3,6 +3,7 @@ import { unstable_renderSubtreeIntoContainer } from "react-dom";
 import { useHistory } from "react-router-dom";
 import { getAllUsers, addFriend } from "../../modules/FriendsManager";
 import { UserCard } from "./UserCard"
+import "./Friend.css";
 
 export const FriendForm = () => {
 
@@ -60,7 +61,7 @@ export const FriendForm = () => {
     
     return (
         <section>
-            <h1>Add A Friend</h1>
+            <h1 className="addfriend-title">Add A Friend</h1>
             <form id="form">
                 <input placeholder="Search for friends..."
                 onChange={handleSearch}

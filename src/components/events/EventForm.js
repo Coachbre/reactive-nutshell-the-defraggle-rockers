@@ -64,9 +64,9 @@ export const NewEventForm = () => {
                 </div>
             </fieldset>
             <Link to={`/events`}>
-                <button>Back</button>
+                <button className="back-to-events-btn">Back</button>
             </Link>
-            <button className="btn btn-primary"
+            <button className="save-event-btn"
                 onClick={handleClickSaveEvent}>
                 Save Event
             </button>

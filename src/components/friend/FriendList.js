@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import {useHistory} from "react-router-dom"
 import { FriendCard } from "./FriendCard";
 import { getAllFriends, deleteFriend } from "../../modules/FriendsManager"
+import "./Friend.css";
 
 export const FriendList = () => {
 
@@ -28,9 +29,10 @@ export const FriendList = () => {
 
     return (
         <>
-            <h1>Friends</h1>
+            <h1 className="friend-title">Friends</h1>
+            <section className="friend-container">
             <section className="friend-content">
-                <button type="button"
+                <button className="add-friend-button" type="button"
                     onClick={() => {history.push("/friends/add")}}>
                     add new friend
                     </button>
@@ -40,6 +42,7 @@ export const FriendList = () => {
                         friend={friend}
                         handleDeleteFriend={handleDeleteFriend} />
                 )}
+            </section>
             </section>
         </>
     )

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from "react-router-dom";
 import { addTask } from '../../modules/TaskManager';
-import "./Task.css"
+import "./TaskCard.css"
 
 
 export const TaskEntry = () => {
@@ -69,12 +69,12 @@ export const TaskEntry = () => {
            
             <div>
             <Link to={`/tasks`} >
-            <button className="btn-primary">Cancel</button>
+            <button className="cancel-task">Cancel</button>
             </Link>
             </div>
             
             <Link to={`/tasks`} >
-            <button className="btn-primary" onClick={handleClickSaveTask} >
+            <button className="task-save" onClick={handleClickSaveTask} >
                 Save Task
             </button>
             </Link>

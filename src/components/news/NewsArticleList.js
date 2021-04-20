@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { ArticleCard } from "./NewsArticleCard";
 import { getAllArticles, deleteArticle } from "../../modules/NewsArticleManager";
-import './NewsArticleList.css';
+import './NewsArticleCard.css';
 
 export const ArticleList = () => {
 
@@ -30,12 +30,11 @@ export const ArticleList = () => {
     return (
         <>
             <div className="container-cards">
-                <h2>News Articles</h2>
+                <h1 className="news-article-title">News Articles</h1>
                 <article className="articles">
                 </article>
                 <section className="section-content">
-                    <button type="button"
-                        className="btn btn-primary"
+                    <button className="add-article-btn" type="button"
                         onClick={() => { history.push("/create") }}>
                         Post News Article
                         </button>

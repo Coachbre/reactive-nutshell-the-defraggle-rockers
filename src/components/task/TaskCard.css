@@ -1,0 +1,59 @@
+.task {    
+    margin: 1.5em;
+    padding: 1em;    
+    background-color: aliceblue;
+    box-shadow: 0 4px 8px 0 rgba(141, 141, 141, 0.2);
+    border-radius: 5px; 
+    background: aliceblue;
+    width: 50%;
+}
+
+.task h2 {
+    margin: .1em;
+}
+  
+.task h3 {
+    margin-top: 0;
+    margin-bottom: .5em;
+    font-weight: bold;
+    color: rgb(43, 112, 241);
+}
+  
+.content-articlename {
+    color: darkslategrey;
+}
+  
+.edit-task, .delete-task, .cancel-task, .task-update, .task-save {
+    background-color: cornflowerblue;
+    border: none;
+    color: cornsilk;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    padding: .5em;
+    margin: 1em;
+    margin-top: .5em;
+    width: 40%;
+} 
+  
+.card button:hover {
+    background-color: darkblue;
+} 
+
+label {
+    color: slategrey;
+}
+
+#checkbox {
+    margin: .5em;
+}
+
+.creat-task-btn {
+    width: 200px;
+    margin: 1em;
+}
+
+.task-title {
+    padding: 1em;
+}

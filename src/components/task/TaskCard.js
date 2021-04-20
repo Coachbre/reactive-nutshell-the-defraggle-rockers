@@ -3,9 +3,7 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
-import "./Task.css"
-
-
+import "./TaskCard.css"
 
 
 export const TaskCard = ({task, handleDelete, handleHideTask}) => (
@@ -13,7 +11,7 @@ export const TaskCard = ({task, handleDelete, handleHideTask}) => (
 
     <section className="task">
       
-        <li><h2 className="task_name">{task.name}</h2>
+        <h2 className="task_name">{task.name}</h2>
  
         <h3 className="task_dueDate">Complete by: {task.dueDate}</h3>
 
@@ -26,14 +24,12 @@ export const TaskCard = ({task, handleDelete, handleHideTask}) => (
         <div>
         <Link to={`/tasks/edit/${task.id}`}>
             {/* sets the URL to match the specific task id # */}
-        <button type="button" className="btn-primary">Edit Task</button>
+        <button type="button" className="edit-task">Edit Task</button>
         </Link>
         </div>
-
         <div>
-        <button type="button" className="btn-primary" onClick={() => handleDelete(task.id)}>Delete Task</button>
+        <button type="button" className="delete-task" onClick={() => handleDelete(task.id)}>Delete Task</button>
         </div>
-        </li>
         
     </section> //why is onClick formatted like this? ^
 )
