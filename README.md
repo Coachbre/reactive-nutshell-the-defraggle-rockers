@@ -1,3 +1,27 @@
+![Nutshell Project](nutshell.snip.png)
+
+# Nutshell Group Project
+While attending Nashville Software School, Cohort 47- We used React to create a single page app that allows users to post news articles and events, create a task list, and add 'friends' that can both send a receive private messages.  
+My main contributions were writing the modules that handled all CRUD functionality for the 'task' related sections.
+
+## Installation
+git clone this repository or download zip
+
+## Usage
+1. Run 'npm start' in the project's root directory  
+2. Navigate to the project's "API directory" and open: 'json-server -p 8088 -w database.json'
+
+
+## Contributing
+[Traye Johnson](https://github.com/archeni)  
+[Brandon Hill]https://github.com/brandonjon26)  
+[Meg McGregor](https://github.com/MegMcGregor)  
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+
 # Reactive Nutshell: The Information Dashboard
 
 ## Setup: Follow these steps exactly
